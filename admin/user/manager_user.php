@@ -85,7 +85,7 @@
     function delete_id_user() {
 
         $.ajax({
-            url: '/du_an_1/admin/index.php?act=manager_user',
+            url: 'index.php?act=manager_user',
             type: 'post',
             data: $('#form_user').serialize(),
             success: function () {

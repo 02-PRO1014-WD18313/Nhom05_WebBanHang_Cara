@@ -230,7 +230,7 @@
     function delete_id() {
 
         $.ajax({
-            url: '/du_an_1/admin/index.php?act=manager_prod',
+            url: 'index.php?act=manager_prod',
             type: 'post',
             data: $('#form_prod').serialize(),
             success: function () {

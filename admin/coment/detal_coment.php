@@ -75,7 +75,7 @@
     function delete_id_coment() {
 
         $.ajax({
-            url: '/du_an_1/admin/index.php?act=comment&group_coment=<?php echo $_GET['group_coment'] ?>',
+            url: 'index.php?act=comment&group_coment=<?php echo $_GET['group_coment'] ?>',
             type: 'post',
             data: $('#form_coment').serialize(),
             success: function () {

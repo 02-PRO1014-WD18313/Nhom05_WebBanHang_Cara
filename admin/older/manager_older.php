@@ -64,7 +64,7 @@
     function delete__older() {
 
         $.ajax({
-            url: '/du_an_1/admin/index.php?act=older',
+            url: 'index.php?act=older',
             type: 'post',
             data: $('#form_older').serialize(),
             success: function () {
