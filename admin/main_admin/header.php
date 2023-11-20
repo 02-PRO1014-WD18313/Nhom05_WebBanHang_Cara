@@ -79,11 +79,11 @@
         <div class="title_home">
             <div class="contain_title_home">
                 <div class="h_title_home">
-                    <h2>Trang thống kê</h2>
+                    <h2>Xin chào Admin</h2>
                 </div>
                 <div class="user_admin">
                     <div class="text_admin">
-                        <p>xin chào phúc</p>
+                        <p> phúc</p>
                     </div>
                     <div class="image_admin">
                         <img src="image/3.jpg" alt="">
