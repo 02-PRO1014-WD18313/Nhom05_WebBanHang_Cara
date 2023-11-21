@@ -1,0 +1,1402 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: "popinns", sans-serif;
+}
+
+.slidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 350px;
+    height: 100vh;
+    padding: 10px 14px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease-out;
+}
+
+header .image_text {
+    padding: 10px 10px;
+}
+
+.slidebar header {
+    padding-left: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slidebar header .togeth {
+    position: absolute;
+    right: -25px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(0, 205, 232);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 100;
+}
+
+.slidebar header .togeth i {
+    font-size: 20px;
+}
+
+.menu_bar .menu .menu_link {
+    padding: 10px 10px;
+}
+
+.menu_bar .menu .menu_link .nav_link {
+    list-style: none;
+    padding: 0.7rem;
+    margin: 10px;
+    margin-top: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.menu_bar .menu .menu_link .nav_link a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu_bar .menu .menu_link .nav_link a i {
+    padding-right: 12px;
+    font-size: 20px;
+    color: #707070;
+}
+
+.menu_bar .menu .menu_link .nav_link a span {
+    font-size: 18px;
+    color: #707070;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.menu_bar .menu .menu_link .nav_link:hover,
+.active {
+    background-color: rgb(181, 181, 181);
+    transition: all 0.3s linear;
+}
+
+.active,
+.menu_bar .menu .menu_link .nav_link:hover,
+.menu_bar .menu .menu_link #log_out:hover {
+    background-color: rgb(237, 237, 237);
+    transition: all 0.3s linear;
+}
+
+#change {
+    font-size: 25px;
+    cursor: grab;
+}
+
+#log_out {
+    position: absolute;
+    width: 55%;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    list-style: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+#log_out a {
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+}
+
+#log_out a span {
+    overflow: hidden;
+    color: #707070;
+    padding-left: 6px;
+}
+
+.active::after {
+    background-color: rgb(181, 181, 181);
+    transition: all 0.4s linear;
+}
+
+body {
+    display: flex;
+}
+
+.home {
+    width: 100%;
+    height: auto;
+    top: 0;
+    background-color: #E4E9F7;
+    padding: 0.7rem;
+}
+
+/* CSS phần đầu trang */
+.home .title_home {
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.home .title_home .contain_title_home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+}
+
+.home .title_home .user_admin {
+    display: flex;
+    align-items: center;
+}
+
+.user_admin .image_admin {
+    display: flex;
+    align-items: center;
+}
+
+.user_admin .image_admin img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Css page_manager_statistical */
+.table_manager_statistical {
+    width: 950%;
+    margin: 10px;
+}
+
+.table_manager_statistical {
+    border-collapse: collapse;
+}
+
+.table_manager_statistical thead {
+    background-color: #e3e6f3;
+}
+
+.table_manager_statistical td,
+th {
+    padding: 8px 0px;
+    line-height: 30px;
+}
+
+.table_manager_statistical td {
+    padding-left: 10px;
+    text-align: center;
+}
+
+.table_manager_statistical tbody tr:nth-of-type(even) {
+    background-color: #ececec;
+}
+
+.bag_big_page_manager {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.table_page_manager_statistical {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+}
+
+/*view_block*/
+
+.number_of_parts {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.block_parts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.block_parts .product_block,
+.view_block,
+.coment_block,
+.order_block {
+    width: 37vh;
+    height: auto;
+    background-color: #ffffff;
+    margin: 10px 0px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 25px 20px;
+}
+
+.block_parts .product_block .bx-food-menu,
+.view_block .fa-regular,
+.coment_block .fa-comments,
+.order_block .bx-cart-alt {
+    font-size: 26px;
+}
+
+.text_block_parts {
+    display: flex;
+    flex-direction: column;
+}
+
+.text_block_parts h4 {
+    font-size: 25px;
+}
+
+.text_block_parts p {
+    color: #707070;
+    margin-top: 5px;
+}
+
+/* chart  */
+.chart_stastiscal {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+}
+
+.chart_stastiscal .chart_box1,
+.chart_box2 {
+    position: relative;
+    background-color: #ffffff;
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.form {
+    width: 100%;
+}
+
+/*CSS loại sản phẩm*/
+.chose {
+    display: flex;
+    margin-top: 10px;
+}
+
+.chose .choose_all,
+.unchecker,
+.remove_choose_prod,
+.more {
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    border-radius: 7px;
+    cursor: grab;
+}
+
+.chose a {
+    text-decoration: none;
+    color: black;
+}
+
+.more_product_type {
+    margin-top: 10px;
+}
+
+.form_prod_type .atuo_number {
+    width: 100%;
+    background-color: #ffffff;
+    height: auto;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.more_product_type .form_prod_type {
+    display: flex;
+    flex-direction: column;
+}
+
+.more_product_type .form_prod_type label {
+    font-size: 24px;
+    margin: 15px 0px;
+}
+
+.more_product_type .form_prod_type input {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.form_prod_type .btn_sbm {
+    margin-top: 20px;
+}
+
+.form_prod_type .btn_sbm button {
+    width: 135px;
+    height: auto;
+    padding: 10px;
+    font-size: 17px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.flex_chose {
+    display: flex;
+}
+
+.chose {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.pagination .ul_pagination {
+    display: flex;
+}
+
+.pagination .ul_pagination li {
+    list-style: none;
+}
+
+.pagination .ul_pagination li a {
+    padding: 11px;
+    background-color: #707070;
+    margin: 0px 1px;
+    font-size: 22px;
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+.hanhdong a {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.hanhdong .edit {
+    background-color: rgb(255, 236, 210);
+    color: rgb(255, 187, 27);
+}
+
+.hanhdong .remove {
+    background-color: rgb(255, 175, 166);
+    color: red;
+}
+
+.classify {
+    padding: 5px;
+    background-color: rgb(188, 255, 188);
+    border-radius: 5px;
+    color: rgb(0, 109, 0);
+    text-decoration: none;
+}
+
+/*css trang thêm sản phẩm*/
+.form_more_prod{
+    margin: 11px 0px;
+ }
+ .controller_more_prod{
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+ }
+.input_more_prod{
+    width: 60%;
+    margin: 0px auto
+}
+.input_more_prod label{
+    font-size: 18px;
+}
+.box_more_prod{
+    width: 100%;
+    border: 1px solid rgb(146, 146, 146);
+    padding: 10px 10px;
+    border-radius: 3px;
+}
+.mota textarea{
+    width: 100%;
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 3px;
+}
+.div_select_more_prod{
+    display: flex;
+    flex-direction: column;
+}
+.div_select_more_prod select{ 
+    width: 100%;
+    border: 1px solid rgb(146, 146, 146);
+    padding: 10px 10px;
+    border-radius: 3px;
+}
+.price_more_product{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+.price_more_product input{
+ margin: 0px 1px;
+}
+.more_new_price{
+    margin-right: 2px;
+}
+.div_input,
+.btn_more_img,
+.price_more_product,
+.div_select_more_prod,
+.mota{
+    margin: 14px 0px;
+}
+.btn_more_img button{
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.btn_more_img button i{
+    margin-right: 3px;
+}
+.btn_more_img button input{
+    position: absolute;
+    top: 1;
+    left: 0;
+    opacity: 0;
+    padding: auto;
+    width: 120px;
+}
+.title_more_product{
+    display: flex;
+    border-bottom: 1px solid rgb(198, 198, 198);
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 14px;
+    box-shadow: 1px 1px 1px 0px rgb(218, 218, 218);
+}
+.btn_more_product button{
+ padding: 13px 36px;
+ background-color: #545454;
+ color: #ffffff;
+ border-radius: 3px;
+ margin: 15px 0px;
+} 
+.title_more_product a{
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    background-color: #dddddd;
+    text-decoration: none;
+    border-radius: 2px;
+}
+.title_more_product a i{
+    padding-right: 2px;
+}
+#imgup{
+    width: 115px;
+    height: auto;
+    margin-left: 10px;
+}
+.btn_more_img{
+    display: flex;
+    align-items: center;
+}
+/*moder thêm bảng màu*/
+/*  dàn hàng ngang cho thêm màu sản phẩm và kích cỡ  */
+.gruop {
+    display: flex;
+    align-items: center;
+}
+
+.gruop .open_modal_popup_table_color {
+    padding-right: 4px;
+}
+
+/*    */
+.open_modal_popup_table_color .but_more_table_color,
+.contructer_more_size button {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.big_mode_color {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.modal_page_smail_more_color,
+.moder_size {
+    border-radius: 6px;
+}
+
+.moder_body_color label,
+.moder_size label {
+    font-size: 20px;
+}
+
+.flex_title_color {
+    display: flex;
+    align-items: center;
+}
+
+.flex_title_color label {
+    padding-right: 4px;
+}
+
+.choose_color {
+    display: flex;
+    align-items: center;
+}
+
+.moder_body_color .choose_color .input_more_color {
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 17px;
+    border: 1px solid black;
+}
+
+.available_color .ul_aval_color {
+    padding-left: 10px;
+}
+
+.open_modal_popup_table_color .big_mode_color .modal_page_smail_more_color {
+    position: relative;
+    width: 350px;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    animation: block 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 11px 26px 2px;
+}
+
+@keyframes block {
+    from {
+        top: -300px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+.moder_header_color {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(255, 103, 103);
+}
+
+.moder_header_color .bx-x {
+    font-size: 20px;
+}
+
+.moder_header_color p {
+    color: white;
+}
+
+.moder_body_color {
+    margin: 20px 10px;
+}
+
+.moder_footer_color {
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.moder_footer_color button {
+    padding: 10px;
+    background-color: #707070;
+    border-radius: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+.seach_more_color {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.seach_product form {
+    width: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seach_product form input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.seach_product form {
+    height: auto;
+}
+
+.btn_sbm_seach_product {
+    border-radius: 0px 3px 3px 0px;
+    background-color: #545454;
+}
+
+.btn_sbm_seach_product i {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+.group_prod {
+    display: flex;
+}
+
+/*thêm kích cỡ cho sản phẩm*/
+.contructer_more_size .more_size_prod .moder_size {
+    position: relative;
+    width: 350px;
+    height: auto;
+    margin: auto;
+    background-color: #ffffff;
+    box-shadow: rgb(198, 198, 198) 0px 7px 29px 0px;
+    animation: blocksize 0.2s ease;
+}
+
+@keyframes blocksize {
+    from {
+        top: -300px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+.more_size_prod {
+    /* background-color: rgba(255, 255, 255, 0.001); */
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.header_size {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.header_size i {
+    font-size: 20px;
+}
+
+.body_size {
+    padding: 10px;
+}
+
+.body_size input {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+.footer_size {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 10px;
+}
+
+.footer_size button {
+    margin-left: 10px;
+    background: linear-gradient(to right, rgb(183, 199, 255), rgb(175, 239, 255));
+}
+
+.table_size {
+    margin-left: 10px;
+}
+
+.table_size .ul_table_size {
+    margin-left: 12px;
+}
+
+.hidden_more_size {
+    display: none;
+}
+
+/*thêm màu sản phẩm*/
+.code_prod {
+    margin: 10px 5px;
+    font-size: 18px;
+}
+
+.code_prod p {
+    margin-bottom: 10px;
+}
+
+.header_color_prod {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.header_color_prod i {
+    font-size: 25px;
+}
+
+.more_color_prod {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    animation: page 0.4s ease;
+    background: none;
+    /* box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px; */
+}
+
+@keyframes page {
+    from {
+        transform: scale(0, 0);
+    }
+
+    to {
+        /* transform:scale(2,2); */
+        transform: scale(1, 1);
+    }
+}
+
+.moder_more_color_prod {
+    position: relative;
+    width: 35%;
+    background-color: #ffffff;
+    top: 5%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 11px 26px 2px;
+}
+
+.container_show_image {
+    width: 100%;
+    padding: 0px 10px;
+
+}
+
+.contructer {
+    width: auto;
+    margin: 0px auto;
+}
+
+.shows_image {
+    width: 100%;
+    border: 1px dashed black;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 5px;
+}
+
+.shows_image .header_show_image p,
+.shows_image span {
+    padding: 15px 0px;
+}
+
+.div_btn_color_prod {
+    display: flex;
+    justify-content: end;
+}
+
+.container_show_image .button_color_prod {
+    padding: 13px 30px;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.div_contain_input_choose_img {
+    position: relative;
+    padding: 10px;
+    background-color: #d6d6d6;
+    opacity: 1;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.input_img {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    font-size: 21px;
+    padding: 7px;
+    opacity: 0;
+}
+.hidden_color_prod {
+    display: none;
+}
+
+#more_prod_img .more_prod_img {
+    padding: 15.5px;
+    background-color: white;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+    cursor: grab;
+}
+
+/*css phần trang quản lý bình luận*/
+.hanhdong a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.menu_page_manager_coment {
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*quản lý đơn hàng */
+.delete_choose_oder {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 5px;
+}
+
+.delete_choose_oder button {
+    padding: 7px;
+    background-color: rgb(255, 75, 75);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.delete_choose_oder i {
+    padding-right: 5px;
+    font-size: 18px;
+}
+
+.code_order {
+    text-decoration: none;
+}
+
+/*chi tiết đơn hàng */
+.order_details_information {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.information_order,
+.pay_product,
+.delivery {
+    width: 387px;
+    height: auto;
+    border: 1px solid rgb(177, 177, 177);
+    box-shadow: -1px 4px 6px 0px rgb(144, 144, 144);
+    background-color: white;
+}
+
+.title_information_order,
+.title_pay_prod,
+.title_delivery {
+    display: flex;
+    border-bottom: 2px solid rgb(141, 141, 141);
+    margin: 6px;
+    font-weight: 540;
+    padding: 4px;
+    padding: 10px 0px;
+}
+
+.title_information_order i,
+.title_pay_prod i,
+.title_delivery i {
+    color: rgb(48, 37, 255);
+    padding-right: 5px;
+}
+
+.body_information_order {
+    margin: 6px;
+}
+
+.body_information_order_1,
+.body_information_order_2,
+.body_information_order_3,
+.body_pay_prod1,
+.body_pay_prod2,
+.body_delivery1,
+.body_delivery2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 6px;
+    margin-top: 3px;
+    padding: 3.5px 0px;
+}
+
+.body_information_order_1 span,
+.body_information_order_2 span,
+.body_delivery1 span {
+    font-weight: 600;
+}
+
+.out_order_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+.out_order_details a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #d0d0d0;
+    width: 90px;
+    color: #000000;
+}
+
+.out_order_details a i {
+    padding-right: 3px;
+}
+
+.order_managenment_code p {
+    font-size: 18px;
+}
+
+.order_managenment_code span {
+    font-size: 15px;
+}
+
+
+.main_order_details {
+    margin-top: 15px;
+}
+
+.main_manager_order {
+    width: 70%;
+    height: auto;
+    background-color: #ffffff;
+}
+
+.title_main_order_details {
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid rgb(184, 184, 184);
+    margin: 20px 10px;
+    padding: 16px 0px;
+}
+
+.title_main_order_details i {
+    padding-right: 5px;
+    font-size: 18px;
+    color: rgb(48, 37, 255);
+}
+
+.table_main_manager_order {
+    margin: 0px 10px;
+}
+
+.table_main_manager_order table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table_main_manager_order table,
+.table_main_manager_order th,
+.table_main_manager_order td {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.table_main_manager_order td img {
+    width: 100px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.table_mmo thead tr {
+    text-align: left;
+}
+
+.Payment_confirmation {
+    margin: 20px;
+}
+
+.money_to_pay {
+    display: flex;
+    justify-content: end;
+}
+
+.confirmmation_money_pay {
+    width: 60%;
+}
+
+.total_money_pay,
+.transport_fee,
+.discount,
+.Total_order_value,
+.btn_confirm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.Total_order_value span {
+    color: red;
+    font-weight: 550;
+}
+
+.btn_confirm button {
+    padding: 10px;
+    background-color: rgb(28, 28, 250);
+    color: white;
+}
+
+.main_order_details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Related_information {
+    width: 28%;
+}
+
+.title_delivery_address,
+.title_informmation_user {
+    display: flex;
+    margin: 0 10px;
+    padding: 10px 0px;
+    border-bottom: 2.3px solid rgb(157, 157, 157);
+}
+
+.title_delivery_address i,
+.title_informmation_user i {
+    padding-right: 5px;
+    color: rgb(28, 28, 250);
+}
+
+.delivery_address,
+.informmation_user {
+    background-color: white;
+}
+
+.body_delivery_address {
+    margin: 0px 10px;
+    padding: 15px 0px;
+    table-layout: fixed;
+}
+
+.informmation_user {
+    margin-top: 10px;
+}
+
+.body_informmation_user {
+    display: flex;
+    padding: 10px;
+    align-items: end;
+}
+
+.body_informmation_user p {
+    padding-left: 10px;
+    padding-bottom: 4px;
+}
+
+.body_informmation_user img {
+    width: 70px;
+    height: auto;
+}
+
+.product_block:hover,
+.view_block:hover,
+.coment_block:hover,
+.order_block:hover {
+    background-color: rgb(155, 121, 255);
+    transition: 0.4s ease;
+    color: white;
+}
+
+/*css thêm phần bên PHP */
+.check_more_type {
+    padding: 15px 0px;
+    font-size: 20px;
+    color: rgb(10, 205, 10);
+}
+
+.btn_sbm {
+    display: flex
+}
+
+.btn_sbm a {
+    text-decoration: none;
+    color: #000000;
+    padding-left: 5px;
+    display: flex;
+}
+
+.btn_location_manager_type {
+    height: auto;
+    background-color: #ffffff;
+    padding: 17px 30px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.color_display{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.ul_aval_color li{
+    display: flex;
+    align-items: center;
+   justify-content: space-between;
+   padding: 2px 0px;
+}
+#choose_prod{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.remove_choose_type{
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.a_more_prod_type{
+    padding: 6px;
+    background-color: rgb(97, 97, 97);
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+.form_update_prod{
+    margin-top: 14px;
+}
+.controller_form_updata_prod{
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+.updata_product{
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    width: 50%;
+}
+.tittle_updata_prod{
+    border-bottom: 1px solid rgb(255, 255, 255);
+    padding: 13px 0px;
+    padding-left: 20px;
+    box-shadow: 1px 1px 5px 1px rgb(238, 236, 236);
+}
+.updata_product label{
+    margin: 10px 0px;
+    font-weight: 550;
+}
+.updata_product .updata_input_product{
+    border: 1px solid rgb(174, 174, 174);
+    padding: 13px;
+    border-radius: 3px;
+    font-size: 17px;
+}
+.price_edit{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+.updata_product img{
+    margin-top: 15px;
+}
+.new_price,
+.old_price{
+    display: flex;
+    flex-direction: column;
+}
+.new_price input,
+.old_price input{
+    margin: 0px 2px;
+}
+.updata_product select{
+    border: 1px solid rgb(174, 174, 174);
+}
+.btn_update_prod{
+    margin: 20px 0px;
+}
+.btn_update_prod button{
+    padding: 13px 13px;
+    border-radius: 2px;
+    font-size: 16px;
+}
+.reset_updata{
+    background-color: rgb(255, 132, 132);
+    color: red;
+}
+.updata_prod{
+    background-color: rgb(205, 255, 131);
+    color: rgb(0, 105, 0);
+}
+.updata_product select{
+    padding: 13px;
+    border-radius: 3px;
+}
+#updata_image{
+    width: 100px;
+    height: 100px;
+    border: 0.4px solid rgb(240, 240, 240);
+}
+.color_variant{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.price_variant_flex_new{
+    width: 100%;
+    padding: 10px;
+}
+.price_variant_flex_new input{
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    padding-right: 2px;
+}
+.price_variant_flex_old{
+    margin-left: 2px;
+}
+.title_variant_prod{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title_variant_prod a{
+    padding-right: 20px;
+}
+/*css admin trang người dùng*/
+.div_delete_seachuser{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+.seach_user{
+    display: flex;
+    justify-content: baseline;
+    
+}
+.seach_user input{
+    padding: 10px;
+    border-radius: 0px 0px 0px 10px;
+}
+.seach_user .btn_sbm_seach_user{
+    padding: 10px 15px;
+    background-color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 4px 0px 4px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 550;
+}
+.div_user_remove{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: rgb(255, 65, 65);
+    color: white;
+    border-radius: 8px 0px 8px 0px;
+    cursor: grab;
+}
+.div_user_remove i{
+    padding-right: 4px;
+}
+.act_comment{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px ;
+}
+.choose_dele_comment p{
+    padding: 10px 20px;
+    background-color: rgb(255, 139, 139);
+    color: white;
+    border-radius: 20px 0px 20px 0px;
+}
+.out_manager_comment a{
+    padding: 8px 10px;
+    background-color: #707070;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 0px 15px 0px 15px;
+}
+.intriduct_prod_comment{
+ margin-top: 15px;
+ margin-bottom: 5px;
+ font-size: 20px;
+}
+.delete_choose_oder a{
+    padding: 10px 15px;
+    background-color: rgb(255, 124, 124);
+    color: #ffffff;
+    
+}
