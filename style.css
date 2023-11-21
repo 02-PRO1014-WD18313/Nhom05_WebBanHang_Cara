@@ -183,7 +183,10 @@ body {
 #feature .fr-box:nth-child(6) h6{
   background-color: #fff2e5;
 }
-
+#product1 .section-p1{
+  position: absolute;
+  z-index: 1;
+}
 #product1{
   text-align: center;
 }
@@ -1192,4 +1195,58 @@ a.google span{
         padding: 20px 10px;
     }
   }
+
+
+/*---------  Menu id   -----------*/
+#menu-small{
+  padding: 0px;
+  text-align: center;
+  width: 15%;
+  position: absolute;
+  z-index: 2;
+}
+#menu-small>ul{
+  border: 1px solid #fff;
+  background-color: #088178;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 3px;
+  box-shadow: 0 0 3px;
+}
+#menu-small>ul>li{
+  display: inline-block;
+  position: relative;
+}
+#menu-small>ul>li>a{
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+    line-height: 30px;
+
+}
+#menu-small>ul>li:hover>a{
+  color: greenyellow;
+}
+#menu-small>ul>li>ul{
+  border: 1px solid;
+  position: absolute;
+  list-style: none;
+  padding: 0px;
+  width: 200px;
+  left: 0px;
+  top: 35px;
+  display: none;
+}
+#menu-small>ul>li>ul>li{
+  position: relative;
+  height: 20px;
+  
+}
+#menu-small>ul>li:hover>ul{
+  display: block;
+}
+
+
 
