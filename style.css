@@ -190,6 +190,7 @@ body {
 #product1{
   text-align: center;
 }
+
 #product1 .pro-container{
   display: flex;
   justify-content: space-between;
@@ -219,10 +220,7 @@ body {
   text-align: start;
   padding: 10px 0;
 }
-#product1 .pro .des span{
-  color:#606063;
-  font-size: 12px;
-}
+
 #product1 .pro .des h5{
   padding-top: 7px;
   color: #1a1a1a;
@@ -232,12 +230,26 @@ body {
   font-size: 12px;
   color: rgba(243, 181, 25); 
 }
-#product1 .pro .des h4{
+#product1 .pro .des .gia h4{
   padding-top: 7px;
   font-size: 15px;
   font-weight: 700;
   color:#088178;
+  
+
+  
 }
+#product1 .des .gia h4.gia-cu{
+  text-decoration: line-through;
+  position: absolute;
+  left: 50px;
+  color:#606063;
+}
+#product1 .pro .des .gia{
+  display: flex;
+  text-align: center;
+}
+/*
 #product1 .pro .cart{
   width: 40px;
   height: 40px;
@@ -250,7 +262,7 @@ body {
   position: absolute;
   bottom: 20px;
   right: 10px;
-}
+}*/
 
 #banner{
   display: flex;
@@ -1197,28 +1209,29 @@ a.google span{
   }
 
 
-/*---------  Menu id   -----------*/
+/*---------  Menu danh muc   -----------*/
 #menu-small{
-  padding: 0px;
   text-align: center;
-  width: 15%;
   position: absolute;
+  left: 30px;
+
   z-index: 2;
 }
-#menu-small>ul{
-  border: 1px solid #fff;
+.menu1>ul{
+  width: 120px;
   background-color: #088178;
-  list-style: none;
   padding: 0px;
   margin: 0px;
   border-radius: 3px;
   box-shadow: 0 0 3px;
+
 }
-#menu-small>ul>li{
+.menu1>ul>li{
   display: inline-block;
   position: relative;
+  
 }
-#menu-small>ul>li>a{
+.menu1>ul>li>a{
   text-decoration: none;
   padding: 10px;
   color: #fff;
@@ -1226,26 +1239,49 @@ a.google span{
     line-height: 30px;
 
 }
-#menu-small>ul>li:hover>a{
+.menu1>ul>li:hover>a{
   color: greenyellow;
 }
-#menu-small>ul>li>ul{
-  border: 1px solid;
+.menu1>ul>li>ul{
+  background-color: #088178;
   position: absolute;
   list-style: none;
   padding: 0px;
-  width: 200px;
+  width: 150px;
   left: 0px;
-  top: 35px;
+  top: 35px;  /**/
   display: none;
 }
-#menu-small>ul>li>ul>li{
-  position: relative;
-  height: 20px;
-  
+.menu1>ul>li>ul>li>a:hover{
+  background-color: #016dcb;
 }
-#menu-small>ul>li:hover>ul{
+.menu1>ul>li>ul>li{
+  position: relative;
+  height: 30px;  
+}
+.menu1 ul ul a{
+  text-decoration: none;
+  color: black;
+  height: 40px;
+}
+.menu1>ul>li:hover>ul{
   display: block;
+}
+
+.flex_price_and_color_prod{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.flex_price_and_color_prod .color_product{
+  display: flex;
+}
+.color_product .color_div{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
 

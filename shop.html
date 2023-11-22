@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    <body>   
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         <section id="header">
             <a href="#"><img src="img/logo.png" class="logo" alt=""></a>
 
@@ -21,9 +22,9 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="">Search</a></li>
-                    <li><a href="dangnhap.html">Account</a></li>
-                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href=""><box-icon name='search'></box-icon></a></li>
+                    <li><a href="dangnhap.html"><box-icon name='user-circle'></box-icon></a></li>
+                    <li><a href="cart.html"><box-icon name='cart-alt'></box-icon></a></li>
                 </ul>
             </div>
         </section>
@@ -34,7 +35,8 @@
         </section>
 
 
-        <section id="menu-small" >
+        <section id="menu-small">
+            <div class="menu1">
                 <ul>
                     <li><a href="">Danh mục</a>
                         <ul>
@@ -47,6 +49,8 @@
     
                     </li>
                 </ul>
+            </div>
+              
         </section>
 
         <section id="product1" class="section-p1">
@@ -54,21 +58,28 @@
                 <div class="pro" onclick="window.location.href='sproduct.html';">
                     <img src="img/products/f1.jpg" alt="">
                     <div class="des">
-                        <span>addidas</span>
+                        <div class="flex_price_and_color_prod" >
+                            <div class="color_product">
+                                <div class="color_div" style="background-color: #818ea0;">
+                                </div>
+                                <div class="color_div" style="background-color: #818ea0;">
+                                </div>
+                                <div class="color_div" style="background-color: #818ea0;">
+                                </div>
+                            </div>
+                        </div>        
                         <h5>Cartoon Astronaut T-Shirt</h5>
-                        <div class="star">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <div class="gia">
+                            <h4 class="gia-moi">$78</h4>
+                            <h4 class="gia-cu">$79</h4>
                         </div>
-                        <h4>$78</h4>
+                       
+                                 
                     </div>
                     <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="img/products/" alt="">
+                    <img src="img/products/f2.jpg" alt="">
                     <div class="des">
                         <span>addidas</span>
                         <h5>Cartoon Astronaut T-Shirt</h5>
@@ -80,6 +91,7 @@
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <h4>$78</h4>
+                        
                     </div>
                     <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
                 </div>
@@ -392,6 +404,7 @@
        
 
         <script src="script.js"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>   
     </body>
 
 </html>
