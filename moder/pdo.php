@@ -182,4 +182,35 @@ function getall_coment(){
     $conn=connect();
     $query=$conn->query("DELETE FROM `comment` WHERE ID_COMMENT=".$id_comment);
  }
+ /////////////////////////////////////////////////////////////
+ //phần trang chủ
+ function top_8_prodnew(){
+  $conn=connect();
+  $query=$conn->query("SELECT * FROM `product` 
+  JOIN related_product ON product.ID_PRODUCT=related_product.ID_PRODUCT
+  JOIN color ON related_product.ID_COLOR=color.ID_COLOR
+  JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
+  GROUP BY product.ID_PRODUCT
+  ORDER BY product.DATE_ADDED DESC LIMIT 8");
+  $result=$query->fetchAll();
+  return $result;
+ }
+ function getall_bienthe(){
+    $conn=connect();
+    $query=$conn->query("SELECT * FROM `related_product`
+    JOIN color ON related_product.ID_COLOR=color.ID_COLOR");
+    $result=$query->fetchAll();
+    return $result;
+ }
+ function top_prod_older(){
+    $conn=connect();
+    $query=$conn->query("SELECT * FROM `product` 
+    JOIN related_product ON product.ID_PRODUCT=related_product.ID_PRODUCT
+    JOIN color ON related_product.ID_COLOR=color.ID_COLOR
+    JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
+    GROUP BY product.ID_PRODUCT
+    ORDER BY product.NUMBER_OF_ORDERS DESC LIMIT 8");
+    $result=$query->fetchAll();
+    return $result;
+   }
 ?>
