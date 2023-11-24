@@ -710,6 +710,10 @@ justify-content: space-around;
   line-height: 25px;
 }
 
+#prodetails .single-pro-details .color_product{
+  padding: 0px 0px 15px;
+
+}
 
 /*  Blog page */
 #page-header.blog-header{
@@ -1214,12 +1218,11 @@ a.google span{
   text-align: center;
   position: absolute;
   left: 30px;
-
   z-index: 2;
 }
 .menu1>ul{
   width: 120px;
-  background-color: #088178;
+  background-color:#818ea0;
   padding: 0px;
   margin: 0px;
   border-radius: 3px;
@@ -1229,7 +1232,7 @@ a.google span{
 .menu1>ul>li{
   display: inline-block;
   position: relative;
-  
+  height: 30px;
 }
 .menu1>ul>li>a{
   text-decoration: none;
@@ -1237,13 +1240,11 @@ a.google span{
   color: #fff;
   font-size: 20px;
     line-height: 30px;
+    
 
 }
-.menu1>ul>li:hover>a{
-  color: greenyellow;
-}
 .menu1>ul>li>ul{
-  background-color: #088178;
+  background-color:#818ea0;
   position: absolute;
   list-style: none;
   padding: 0px;
@@ -1252,12 +1253,16 @@ a.google span{
   top: 35px;  /**/
   display: none;
 }
-.menu1>ul>li>ul>li>a:hover{
-  background-color: #016dcb;
+.ul_smail li:hover{
+  background-color: #465b52;
+}
+.ul_smail li:hover a{
+  color: white;
 }
 .menu1>ul>li>ul>li{
   position: relative;
   height: 30px;  
+  padding: 5px;
 }
 .menu1 ul ul a{
   text-decoration: none;
