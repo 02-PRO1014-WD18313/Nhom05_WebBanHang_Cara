@@ -39,7 +39,7 @@
     <div class="pro-container">
         <?php foreach ($top_prod_older as $topoder): ?>
             <div class="pro">
-                <a href="">
+                <a href="index.php?href=details&id_prod=<?php echo $topoder->ID_PRODUCT ?>">
                     <div class="img_home">
                         <img src="../images_prod/<?php echo $topoder->IMAGE ?>" alt="">
                     </div>
@@ -94,7 +94,7 @@
     <div class="pro-container">
         <?php foreach ($top_8 as $get): ?>
             <div class="pro">
-                <a href="#">
+                <a href="index.php?href=details&id_prod=<?php echo $get->ID_PRODUCT ?>">
                     <div class="img_home">
                         <img src="../images_prod/<?php echo $get->IMAGE ?>" alt="">
                     </div>

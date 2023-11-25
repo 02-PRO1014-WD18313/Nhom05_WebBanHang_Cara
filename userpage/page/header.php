@@ -20,17 +20,17 @@
             <div class="flex_menu">
                 <ul id="navbar">
                     <p class="x_menu_mobile" onclick="clickremove()"><i class='bx bx-x'></i></i></p>
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li><a class="active" href="index.php">Home</a></li>
+                    <li><a href="index.php?href=shop">Shop</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="">tài khoản</a>
-
+                    <li><a href=""><i class='bx bx-search'></i></a></li>
+                    <li><a href="dangnhap.html"><i class='bx bx-user-circle'></i></a></li>
                     </li>
                 </ul>
                 <ul class="cart_menu">
-                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="cart.html"><i class='bx bxs-cart'></i></a></li>
                 </ul>
 
             </div>

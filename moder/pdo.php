@@ -72,21 +72,22 @@ function getall_prod($name_kyw)
     $row = 10;
     $from = ($page - 1) * $row;
     $conn = connect();
-    
-    $query =("SELECT * FROM product JOIN product_type ON 
+
+    $query = ("SELECT * FROM product JOIN product_type ON 
     product.ID_PROD_TYPE=product_type.ID_PROD_TYPE WHERE 1");
 
-    if($name_kyw != ""){
-        $query .=" AND NAME_PROD LIKE'%".$name_kyw."%'";
+    if ($name_kyw != "") {
+        $query .= " AND NAME_PROD LIKE'%" . $name_kyw . "%'";
     }
 
-    $query .=" LIMIT $from , $row";
+    $query .= " LIMIT $from , $row";
 
     $result = $conn->query($query);
     return $result;
 }
 //đếm sản phẩm
-function count_prod(){
+function count_prod()
+{
     $conn = connect();
     $query = $conn->query("SELECT * FROM product");
     $result = $query->fetchAll();
@@ -147,22 +148,25 @@ function edit_variant($id, $image_variant, $price_variant, $menu_color_variant)
   WHERE `ID_RELATED_PRODUCT`=" . $id);
 }
 // tài khoản người dùng 
-function getall_user($kyw_name_user){
-    $conn=connect();
+function getall_user($kyw_name_user)
+{
+    $conn = connect();
     $query = ("SELECT * FROM user WHERE 1");
-    if($kyw_name_user !=""){
-       $query .= " AND NAME_USER LIKE '%".$kyw_name_user."%'"; 
+    if ($kyw_name_user != "") {
+        $query .= " AND NAME_USER LIKE '%" . $kyw_name_user . "%'";
     }
     $result = $conn->query($query);
     return $result;
 }
-function delete_user($id_usser){
-    $conn=connect();
-    $query = $conn->query("DELETE FROM `user` WHERE ID_KH=".$id_usser);
+function delete_user($id_usser)
+{
+    $conn = connect();
+    $query = $conn->query("DELETE FROM `user` WHERE ID_KH=" . $id_usser);
 }
 // thống kê số bình luận
-function getall_coment(){
-    $conn=connect();
+function getall_coment()
+{
+    $conn = connect();
     $query = $conn->query("SELECT product.ID_PRODUCT,product.NAME_PROD,product.CODE_PROD , user.NAME_USER , comment.COMMENTARY_CONTENT, COUNT(product.ID_PRODUCT) as 'count_coment_prod' ,MIN(COMMENT.DATE_COMENT) AS 'min_date' , MAX(COMMENT.DATE_COMENT) as 'max_date'
     FROM `comment` JOIN product ON comment.ID_PRODUCT=product.ID_PRODUCT
     JOIN user ON user.ID_KH=comment.ID_KH
@@ -170,47 +174,81 @@ function getall_coment(){
     $result = $query->fetchAll();
     return $result;
 }
- function slec_coment_idprod($id_prod){
+function slec_coment_idprod($id_prod)
+{
     $conn = connect();
     $query = $conn->query("SELECT comment.ID_COMMENT,comment.COMMENTARY_CONTENT,comment.DATE_COMENT,product.ID_PRODUCT,user.NAME_USER FROM comment JOIN product ON comment.ID_PRODUCT=product.ID_PRODUCT
     JOIN user ON comment.ID_KH=user.ID_KH
-    WHERE product.ID_PRODUCT=".$id_prod);
+    WHERE product.ID_PRODUCT=" . $id_prod);
     $result = $query->fetchAll();
     return $result;
- }
- function del_comment($id_comment){
-    $conn=connect();
-    $query=$conn->query("DELETE FROM `comment` WHERE ID_COMMENT=".$id_comment);
- }
- /////////////////////////////////////////////////////////////
- //phần trang chủ
- function top_8_prodnew(){
-  $conn=connect();
-  $query=$conn->query("SELECT * FROM `product` 
+}
+function del_comment($id_comment)
+{
+    $conn = connect();
+    $query = $conn->query("DELETE FROM `comment` WHERE ID_COMMENT=" . $id_comment);
+}
+/////////////////////////////////////////////////////////////
+//phần trang chủ
+function top_8_prodnew()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `product` 
   JOIN related_product ON product.ID_PRODUCT=related_product.ID_PRODUCT
   JOIN color ON related_product.ID_COLOR=color.ID_COLOR
   JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
   GROUP BY product.ID_PRODUCT
   ORDER BY product.DATE_ADDED DESC LIMIT 8");
-  $result=$query->fetchAll();
-  return $result;
- }
- function getall_bienthe(){
-    $conn=connect();
-    $query=$conn->query("SELECT * FROM `related_product`
-    JOIN color ON related_product.ID_COLOR=color.ID_COLOR");
-    $result=$query->fetchAll();
+    $result = $query->fetchAll();
     return $result;
- }
- function top_prod_older(){
-    $conn=connect();
-    $query=$conn->query("SELECT * FROM `product` 
+}
+function getall_bienthe()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `related_product`
+    JOIN color ON related_product.ID_COLOR=color.ID_COLOR");
+    $result = $query->fetchAll();
+    return $result;
+}
+function top_prod_older()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `product` 
     JOIN related_product ON product.ID_PRODUCT=related_product.ID_PRODUCT
     JOIN color ON related_product.ID_COLOR=color.ID_COLOR
     JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
     GROUP BY product.ID_PRODUCT
     ORDER BY product.NUMBER_OF_ORDERS DESC LIMIT 8");
+    $result = $query->fetchAll();
+    return $result;
+}
+
+function getall_prod_shop($kyw_type_prod)
+{
+    $conn = connect();
+    $query = ("SELECT * FROM `product` 
+    JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE WHERE 1");
+    if($kyw_type_prod !=""){
+        $query .=" AND product_type.ID_PROD_TYPE=".$kyw_type_prod;
+    }
+    $resule=$conn->query($query);
+    return $resule;
+}
+function get_prod_id($id)
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `product`
+    JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
+    WHERE product.ID_PRODUCT=".$id);
+    $result=$query->fetch();
+    return $result;
+}
+ function prod_peatured($id_prod_type){
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `product`
+    JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
+    WHERE product_type.ID_PROD_TYPE=".$id_prod_type);
     $result=$query->fetchAll();
     return $result;
-   }
+ }
 ?>
