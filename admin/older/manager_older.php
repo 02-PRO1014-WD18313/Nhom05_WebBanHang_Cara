@@ -31,15 +31,51 @@
                 </thead>
 
                 <tbody>
-                    <tr id="box2">
-                        <td><input type="checkbox" name="checkbox[]" id="2" value="2"></td>
-                        <td><a class="code_order" href="index.php?act=older&detal_older">#29279</a></td>
-                        <td>áo</td>
-                        <td>20</td>
-                        <td>22-11-11</td>
-                        <td>11</td>
-                        <td>1.000.000đ</td>
-                    </tr>
+                    <?php foreach ($getall_older as $older): ?>
+                        <tr id="box2<?php echo $older->ID_ORDER ?>">
+                            <td><input type="checkbox" name="checkbox[]" id="<?php echo $older->ID_ORDER ?>"
+                                    value="<?php echo $older->ID_ORDER ?>"></td>
+                            <td><a class="code_order" href="index.php?act=older&detal_older=<?php echo $older->ID_ORDER ?>">
+                                    <?php echo $older->CODE_ORDER ?>
+                                </a></td>
+                            <td>
+                                <?php echo $older->NAME_USER_ORDER ?>
+                            </td>
+                            <td>
+                                <?php
+                                // echo $older->STATUS_ORDER;
+                                if ($older->STATUS_ORDER == 1) {
+                                    echo "Đơn hàng mới";
+                                } elseif ($older->STATUS_ORDER == 2) {
+                                    echo "Đã xác nhận đơn hàng";
+                                } elseif ($older->STATUS_ORDER == 3) {
+                                    echo "Đơn hàng đang giao";
+                                } elseif ($older->STATUS_ORDER == 4) {
+                                    echo "Giao hàng thành công";
+                                } else {
+                                    echo "Đơn hàng bị hủy";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                if ($older->STATUS_ORDER == 1 || $older->STATUS_ORDER == 2 || $older->STATUS_ORDER == 3) {
+                                    echo "Chưa thanh toán!";
+                                } elseif ($older->STATUS_ORDER == 4) {
+                                    echo "Đơn hàng đã thanh toán";
+                                } else {
+                                    echo "Chưa thanh toán!";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php echo $older->DATA_ORDER ?>
+                            </td>
+                            <td>
+                                <?php echo number_format($older->TOTAL, '0', ',', '.') . 'đ' ?>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
 
             </table>
@@ -74,7 +110,7 @@
                             title: "Xóa thành công",
                             button: "ok",
                         });
-                        $('#box' + this.id).remove();
+                        $('#box2' + this.id).remove();
                     }
                 });
             }

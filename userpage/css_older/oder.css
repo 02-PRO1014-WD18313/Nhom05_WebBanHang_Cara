@@ -1,0 +1,107 @@
+.controller_older {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.controller_older .flex_older {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thongtin {
+    width: 55%;
+    margin-left: 50px;
+}
+
+.table_prod_older {
+    width: 35%;
+    margin-right: 50px;
+}
+
+.form_older {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_older input {
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    background-color: rgb(238, 238, 238);
+    color: #000;
+    border-radius: 20px;
+    padding: 13px 15px;
+}
+
+.form_older select {
+    padding: 15px 15px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 15px;
+    margin: 10px 0px;
+    border: none;
+}
+
+.form_older button {
+    margin: 20px 0px;
+    border-radius: 15px;
+    background-color: #81c8c2;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.block_older {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 20px;
+}
+.block_older thead{
+    border-left: none;
+    border-right: none;
+}
+
+.block_older thead td{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+}   
+.block_older tbody td{
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+}   
+.block_older thead tr,
+.block_older tbody tr{
+    line-height: 15px;
+    text-align: center;
+}
+.table_prod_older{
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+}
+.title_prod_older{
+    border-bottom: 1px solid rgb(128, 128, 128);
+    margin: 0px 20px;
+}
+.title_prod_older h3{
+    padding-left: 15px;
+}
+.tamtinh_order{
+    display: flex;
+    border-top: 1px dashed rgb(128, 128, 128);
+    margin: 0px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.tamtinh_order h4{
+    font-weight: 600;
+}
+.tinhtien_prod{
+    display: flex;
+    border-top: 1px solid rgb(128, 128, 128);
+    margin: 0px 20px;
+    align-items: center;
+    justify-content: space-between;
+}

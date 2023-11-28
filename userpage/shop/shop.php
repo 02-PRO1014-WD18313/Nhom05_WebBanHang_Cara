@@ -40,13 +40,7 @@
                     <h5>
                         <?php echo $shop->NAME_PROD ?>
                     </h5>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
+
                     <div class="flex_price_and_color_prod">
                         <h4>
                             <?php echo number_format($shop->NEW_PRICE, '0', ',', '.') . 'đ' ?>
