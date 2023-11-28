@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css_older/oder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+
 </head>
 
 <body>
@@ -22,15 +27,19 @@
                     <p class="x_menu_mobile" onclick="clickremove()"><i class='bx bx-x'></i></i></p>
                     <li><a class="active" href="index.php">Home</a></li>
                     <li><a href="index.php?href=shop">Shop</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.php?href=blog">Blog</a></li>
+                    <li><a href="index.php?href=about">About</a></li>
+                    <li><a href="index.php?href=contact">Contact</a></li>
                     <li><a href=""><i class='bx bx-search'></i></a></li>
-                    <li><a href="dangnhap.html"><i class='bx bx-user-circle'></i></a></li>
+                    <?php if (isset($_SESSION['user_login'])) { ?>
+                        <li><a href="index.php?href=account"><i class='bx bx-user-circle'></i></a></li>
+                    <?php }else{ ?>
+                        <li><a href="index.php?href=login"><i class='bx bx-user-circle'></i></a></li>
+                        <?php } ?>
                     </li>
                 </ul>
                 <ul class="cart_menu">
-                    <li><a href="cart.html"><i class='bx bxs-cart'></i></a></li>
+                    <li><a href="index.php?href=cart"><i class='bx bxs-cart'></i></a></li>
                 </ul>
 
             </div>

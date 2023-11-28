@@ -10,6 +10,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css_older/oder.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
@@ -29,87 +30,82 @@
         </div>
     </section>
 
-    <section id="page-header" class="about-header">
-        <h2>#let's_talk</h2>
-        <p>LEAVE A MASSAGE, We love to hear from you!</p>
-    </section>
-    <form action="">
-        <section id="cart" class="section-p1">
 
 
-            <table>
-                <thead>
-                    <tr>
-                        <td>Image</td>
-                        <td>Product</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Subtotal</td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img src="img/products/f1.jpg" alt=""></td>
-                        <td class="stickky">
-                            <p>Cartoon Astronaut T-Shirts</p>
-                        </td>
-                        <td>$118.19</td>
-                        <td><input type="number" class="quantity_cart" value="1" min="1"></td>
-                        <td>$118.19</td>
-                        <td>
-                            <div class="flex_hanhdong">
+    <div class="controller_older">
+        <div class="flex_older">
+            <div class="thongtin">
+                <h3>Thanh Toán</h3>
+                <form action="" method="post" class="form_older">
+                    <input type="text" name="" id="" placeholder="Họ Và tên">
+                    <input type="text" placeholder="Số điện thoại">
+                    <input type="email" name="" id="" placeholder="Email của bạn">
 
-                                <a href="" class="click_a_update_cart">
-                                    <div class="updata_cart">
-                                        <i class='bx bxs-edit'></i>
-                                    </div>
-                                </a>
-                                <a href="" class="remove_prod_cart">
-                                    <i class='bx bx-x'></i>
-                                </a>
-
-                            </div>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-
-        </section>
-
-        <section id="cart-add" class="section-p1">
-            <!-- <div id="coupon">
-                <h3>Apply Coupon</h3>
-                <div>
-                    <input type="text" placeholder="Enter Your Coupon">
-                    <button class="normal">Apply</button>
-                </div>
-            </div> -->
-
-            <div id="subtotal">
-                <h3>Cart Totals</h3>
-                <table>
-                    <tr>
-                        <td>Cart Subtotal</td>
-                        <td>$335</td>
-                    </tr>
-                    <tr>
-                        <td>Shipping</td>
-                        <td>Free</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Total</strong></td>
-                        <td><strong>$335</strong></td>
-                    </tr>
-                </table>
-                <button class="normal">Proceed to checkout</button>
+                    <select name="" id="province">
+                    </select>
+                    <select name="" id="district">
+                        <option value="">Chọn quận</option>
+                    </select>
+                    <select name="" id="ward">
+                        <option value="">Chọn phường</option>
+                    </select>
+                    <button>Đặt hàng</button>
+                </form>
             </div>
-    </form>
-    
-    </section>
+
+            <div class="table_prod_older">
+                <div class="title_prod_older">
+                    <h3>
+                        Sản phẩm mua
+                    </h3>
+                </div>
+                <table class="block_older">
+                    <thead>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>q</td>
+                            <td>ư</td>
+                            <td>e</td>
+                            <td>r</td>
+                        </tr>
+                        <tr>
+                            <td>q</td>
+                            <td>ư</td>
+                            <td>e</td>
+                            <td>r</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tamtinh_order">
+                    <h4>Tạm tính</h4>
+                    <p>34.000đ</p>
+                </div>
+                <div class="tinhtien_prod">
+                    <h4>Tổng cộng</h4>
+                    <p>34.000đ</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="javasctip/choose_domain.js"></script>
+
 
 
     <footer class="section-p1">

@@ -51,13 +51,7 @@
                     <h5>
                         <?php echo $topoder->NAME_PROD ?>
                     </h5>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
+
                     <div class="flex_price_and_color_prod">
                         <h4>
                             <?php echo number_format($topoder->NEW_PRICE, '0', ',', '.') . 'đ' ?>

@@ -228,10 +228,10 @@ function getall_prod_shop($kyw_type_prod)
     $conn = connect();
     $query = ("SELECT * FROM `product` 
     JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE WHERE 1");
-    if($kyw_type_prod !=""){
-        $query .=" AND product_type.ID_PROD_TYPE=".$kyw_type_prod;
+    if ($kyw_type_prod != "") {
+        $query .= " AND product_type.ID_PROD_TYPE=" . $kyw_type_prod;
     }
-    $resule=$conn->query($query);
+    $resule = $conn->query($query);
     return $resule;
 }
 function get_prod_id($id)
@@ -239,16 +239,146 @@ function get_prod_id($id)
     $conn = connect();
     $query = $conn->query("SELECT * FROM `product`
     JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
-    WHERE product.ID_PRODUCT=".$id);
-    $result=$query->fetch();
+    WHERE product.ID_PRODUCT=" . $id);
+    $result = $query->fetch();
     return $result;
 }
- function prod_peatured($id_prod_type){
+function prod_peatured($id_prod_type)
+{
     $conn = connect();
     $query = $conn->query("SELECT * FROM `product`
     JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
-    WHERE product_type.ID_PROD_TYPE=".$id_prod_type);
-    $result=$query->fetchAll();
+    WHERE product_type.ID_PROD_TYPE=" . $id_prod_type);
+    $result = $query->fetchAll();
     return $result;
- }
+}
+function login($email, $pass)
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `user` WHERE EMAIL_USER='$email' AND PASSWORD='$pass' ");
+    $result = $query->fetch();
+    return $result;
+}
+function get_user()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `user`");
+    $result = $query->fetchAll();
+    return $result;
+}
+function check_email($email_user)
+{
+    $get_user = get_user();
+    foreach ($get_user as $get) {
+        if ($get->EMAIL_USER == $email_user) {
+            return "* Email này đã được sử dụng !";
+        }
+    }
+}
+function creat_user($name_user, $email_user, $pas_user, $date_founded)
+{
+    $conn = connect();
+    $query = $conn->query("INSERT INTO `user`(`NAME_USER`, `EMAIL_USER`, `PASSWORD`, `DATE_FOUNDED`) VALUES
+     ('$name_user','$email_user','$pas_user','$date_founded')");
+}
+// phần giỏ hàng
+function get_cart()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `cart` 
+    JOIN user ON cart.ID_KH=user.ID_KH
+    JOIN related_product ON related_product.ID_RELATED_PRODUCT=cart.ID_RELATED_PRODUCT
+    JOIN product ON  related_product.ID_PRODUCT=product.ID_PRODUCT
+    JOIN color ON  related_product.ID_COLOR=color.ID_color");
+    $result = $query->fetchAll();
+    return $result;
+}
+function update_cart($id_cart, $soluong)
+{
+    $conn = connect();
+    $query = $conn->query("UPDATE `cart` SET `SOLUONG_CART`='$soluong'
+     WHERE `ID_CART`=" . $id_cart);
+}
+function delete_cart($id_cart)
+{
+    $conn = connect();
+    $query = $conn->query("DELETE FROM `cart` WHERE `ID_CART`=" . $id_cart);
+}
+// phần thanh toán và đặt hàng
+function getall_older()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `order_prod` 
+    JOIN order_details ON order_prod.ID_ORDER=order_details.ID_ORDER 
+    GROUP BY order_prod.ID_ORDER");
+    $result = $query->fetchAll();
+    return $result;
+}
+function order_informmation($code_older, $id_kh, $name_user, $phone_number, $Email_user, $province, $district, $commune, $pay_price_prod, $date_older, $status)
+{
+    $conn = connect();
+    $conn->query("INSERT INTO `order_prod`( `CODE_ORDER`,`ID_KH`,`NAME_USER_ORDER`, `PHONE_NUMBER`, `EMAIL_ADDRESS`, `VIETNAM_PROVINCE`, `VIETNAM_DISTRICT`, `VIETNAM_COMMUNE`, `TOTAL`, `DATA_ORDER`,`STATUS_ORDER`) VALUES
+     ('$code_older','$id_kh','$name_user','$phone_number','$Email_user','$province','$district','$commune','$pay_price_prod','$date_older','$status')");
+    $last_id = $conn->lastInsertId();
+    return $last_id;
+}
+function oder_details($id_bill, $id_reat_prod, $quanity, $price)
+{
+    $conn = connect();
+    $conn->query("INSERT INTO `order_details`(`ID_ORDER`, `ID_RELATED_PRODUCT`, `QUANITY`, `PRICE`) VALUES
+     ('$id_bill','$id_reat_prod','$quanity','$price')");
+}
+function more_cart($id_kh, $id_reat_prod, $quanity)
+{
+    $conn = connect();
+    $conn->query("INSERT INTO `cart`( `ID_KH`, `ID_RELATED_PRODUCT`, `SOLUONG_CART`) 
+    VALUES ('$id_kh','$id_reat_prod','$quanity')");
+}
+function update_prod_cart($total_soluong, $id_cart)
+{
+    $conn = connect();
+    $conn->query("UPDATE `cart` SET `SOLUONG_CART`='$total_soluong' WHERE `ID_CART`=" . $id_cart);
+}
+function getid_order($id_order)
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `order_prod` 
+    WHERE `ID_ORDER` =" . $id_order);
+    $result = $query->fetch();
+    return $result;
+}
+function getid_order_details($id_order)
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `order_details`
+    JOIN related_product ON order_details.ID_RELATED_PRODUCT=related_product.ID_RELATED_PRODUCT
+    JOIN product ON product.ID_PRODUCT=related_product.ID_PRODUCT
+    JOIN color ON related_product.ID_COLOR=color.ID_COLOR
+    WHERE `ID_ORDER` =" . $id_order);
+    $result = $query->fetchAll();
+    return $result;
+}
+function update_older($confirm, $id_order)
+{
+    $conn = connect();
+    $query = $conn->query("UPDATE `order_prod` SET `STATUS_ORDER`='$confirm' 
+    WHERE `ID_ORDER`=".$id_order);
+}
+function getall_confirm_order()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `confirm_order` ");
+    $result = $query->fetchAll();
+    return $result;
+}
+function delete_order($list){
+    $conn = connect();
+    $query = $conn->query("DELETE FROM `order_prod` WHERE ID_ORDER=".$list);
+}
+// pdo phần chi tiết tài khoản người dùng
+function update_pass($pass_new, $id_kh)
+{
+    $conn = connect();
+    $conn->query("UPDATE `user` SET `PASSWORD`='$pass_new' WHERE `ID_KH`=" . $id_kh);
+}
 ?>

@@ -51,7 +51,7 @@
                     <?php echo $get_id_prod->NAME_PROD ?>
                 </h6>
             <?php } else { ?>
-                <h6><a href="index.php" style="text-decoration: none;" >Home</a> /
+                <h6><a href="index.php" style="text-decoration: none;">Home</a> /
                     <?php echo $get_id_prod->NAME_PROD ?>
                 </h6>
             <?php } ?>
@@ -62,9 +62,10 @@
                 <h2 id="price">
                     <?php echo number_format($get_id_prod->NEW_PRICE, '0', ',', '.') . "đ" ?>
                 </h2>
-                <span style=" font-size: 18px;color: #606063;">
+
+                <del style=" font-size: 18px;color: #606063; margin-left: 10px;">
                     <?php echo number_format($get_id_prod->OLD_PRICE, '0', ',', '.') . "đ" ?>
-                </span>
+                </del>
 
             </div>
 
@@ -92,8 +93,9 @@
                                 data-animal-type="<?php echo $bienthe->NAME_COLOR ?>"
                                 data-animal="<?php echo number_format($bienthe->PRICE_VARIANT, '0', ',', '.') . "đ" ?>"
                                 onclick="showDetails(this,this)">
+
                                 <img src="../images_prod/<?php echo $bienthe->IMAGE_VARIANT ?>" alt="">
-                                <input class="choose_color_prod" id="radio_color" type="radio" name="color"
+                                <input class="choose_color_prod" id="radio_color" type="radio" name="prod_color"
                                     value="<?php echo $bienthe->ID_RELATED_PRODUCT ?>">
                             </div>
 
@@ -102,8 +104,20 @@
 
                 </div>
             </div>
-            <input type="number" value="1" min="0">
-            <button class="normal">Add To Cart</button>
+            <p style="color:red;" >
+                <?php 
+                if($check_user == false){
+                    echo "Bạn phải đăng nhập để mua hàng !";
+                }
+                if($check_empty == false){
+                    echo "Bạn chưa chọn sản phẩm !";
+                }
+                ?>
+            </p>
+            <input type="number" name="quanyty" value="1" min="0" style="border: 1px solid;">
+
+            <button type="submit" class="normal" name="btn_more_cart">Add To Cart</button>
+
             <h4>Product Details</h4>
             <div class="Content_restrictions" id="content">
                 <span id="span">Đơn giản là chưa có sự kết nối giữa bộ não tới tay, vì gõ code là qua tay.
@@ -139,13 +153,6 @@
                     <h5>
                         <?php echo $prod_peat->NAME_PROD ?>
                     </h5>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
                     <div class="flex_price_and_color_prod">
                         <h4>
                             <?php echo number_format($prod_peat->NEW_PRICE, '0', ',', '.') . 'đ' ?>
