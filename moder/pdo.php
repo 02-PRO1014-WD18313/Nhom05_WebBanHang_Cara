@@ -62,8 +62,7 @@ function more_product(
     $conn->query("INSERT INTO `product`(`CODE_PROD`,`NAME_PROD`, `IMAGE`, `NEW_PRICE`,`OLD_PRICE`, `ID_PROD_TYPE`, `DESCRIBE`, `DATE_ADDED`) VALUES 
     ('$code_prod','$name_prod','$image','$new_price','$old_price','$choose_type','$describe',' $data_added') ");
 }
-function getall_prod($name_kyw)
-{
+function getall_prod($name_kyw){
     if (isset($_GET["page"])) {
         $page = $_GET['page'];
     } else {
