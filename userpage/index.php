@@ -5,7 +5,7 @@ include 'page/header.php';
 if (isset($_GET['href'])) {
     switch ($_GET['href']) {
         case 'shop':
-
+            
             $getallbienthe = getall_bienthe();
 
             $getall_menu = getall_type();
@@ -14,7 +14,26 @@ if (isset($_GET['href'])) {
             } else {
                 $kyw_type_prod = "";
             }
-            $getall_prod_shop = getall_prod_shop($kyw_type_prod);
+            if (isset($_GET['kyw'])) {
+                $kyw = $_GET['kyw'];
+
+            } else {
+                $kyw = "";
+            }
+            if (isset($_GET['price'])) {
+                $kyw_pri = $_GET['price'];
+
+            } else {
+                $kyw_pri = "";
+            }
+            if(isset($_POST['btn_loc'])){
+                $from_price=$_POST['from_price'];
+                $from_to=$_POST['from_to'];
+            }else{
+                $from_price="";
+                $from_to="";
+            }
+            $getall_prod_shop = getall_prod_shop($kyw_type_prod, $kyw, $kyw_pri, $from_price,$from_to);
 
             include "shop/shop.php";
             break;
@@ -48,7 +67,7 @@ if (isset($_GET['href'])) {
             include "shop/older.php";
             break;
         case 'account':
-            $account=$_SESSION['user_login'];
+            $account = $_SESSION['user_login'];
             include "mvc_account/controller_account.php";
             include "mvc_account/account.php";
             break;

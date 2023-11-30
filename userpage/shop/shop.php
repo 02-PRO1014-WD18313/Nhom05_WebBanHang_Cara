@@ -2,28 +2,96 @@
     <h2>#stayhome</h2>
     <p>Save more with coupons & up to 70% off!</p>
 </section>
-
-
 <section id="menu-small">
     <div class="menu1">
         <ul>
             <li class="li_menu_shop">
                 <p>Danh mục</p>
                 <ul class="ul_smail">
-                    <?php foreach($getall_menu as $menu): ?>
-                    <li><a href="index.php?href=shop&id_type=<?php echo $menu->ID_PROD_TYPE ?>"><?php echo $menu->NAME_PROD_TYPE ?></a></li>
+                    <?php foreach ($getall_menu as $menu): ?>
+                        <li><a href="index.php?href=shop&id_type=<?php echo $menu->ID_PROD_TYPE ?>">
+                                <?php echo $menu->NAME_PROD_TYPE ?>
+                            </a></li>
                     <?php endforeach ?>
                 </ul>
 
             </li>
         </ul>
     </div>
-
+    <div class="tong_bp_loc">
+        <div class="controller_boloc">
+            <div class="group_form">
+                <select name="" id="" class="form_control select-filter">
+                    <option value="0">---Lọc theo---</option>
+                    <option value="&kyw=asc">Ký tự A-Z</option>
+                    <option value="&kyw=desc">Ký tự Z-A</option>
+                    <option value="&price=asc">Giá tăng dần</option>
+                    <option value="&price=desc">Giá giảm dần dần</option>
+                </select>
+            </div>
+        </div>
+    </div>
 </section>
+<div class="div_thanhkeo">
+    <div class="thanh_timhoanggia">
+        <form action="" class="form_loc" method="post">
+            <div class="flex_thanh">
+                <p>
+                    <label for="amount">Lọc khoảng giá:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+                <input type="hidden" class="price_form" name="from_price">
+                <input type="hidden" class="price_to" name="from_to">
+                <div id="slider-range"></div>
+            </div>
+            <div class="btn_loc">
+                <button name="btn_loc" >Lọc</button>
+            </div>
 
+        </form>
+    </div>
+</div>
+
+<style>
+    .tong_bp_loc {
+        padding-top: 30px;
+        margin-left: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form_loc {
+        display: flex;
+    }
+
+    .div_thanhkeo {
+        position: relative;
+    }
+
+    .btn_loc {
+        padding-top: 14px;
+    }
+    .btn_loc button{
+        background-color: #ffaa49;
+        color: white;
+        font-weight: 600;
+    }
+
+    .thanh_timhoanggia {
+        position: absolute;
+        top: 0px;
+        right: 100px;
+    }
+
+    .group_form select {
+        padding: 5px;
+        border: 1px solid rgb(173, 173, 173);
+        border-radius: 6px;
+    }
+</style>
 
 <section id="product1" class="section-p1">
-    <div class="pro-container">
+    <div class="pro-container" style="margin-top: 25px;">
         <?php foreach ($getall_prod_shop as $shop): ?>
             <div class="pro">
 

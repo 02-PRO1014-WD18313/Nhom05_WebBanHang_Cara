@@ -1930,6 +1930,7 @@ p.auth-sgt {
 .home_acc{
   overflow:auto;
   height: 315px;
+  overscroll-behavior: contain;
 }
 .info_user{
 display: flex;
@@ -1965,4 +1966,105 @@ font-size: 17px;
 .button_update_pass button{
   background-color: #088178;
   color: white;
+}
+/*----------- table_pending  --------------*/
+.home_acc .table_pending{
+  width:100%;  
+  border-collapse: collapse;
+  border: 1px solid rgb(167, 167, 167);
+}
+.table_prod_pending{
+  margin: 0px 20px;
+}
+.home_acc .table_pending tbody tr td{
+  text-align: center;
+  line-height: 10px;
+}
+
+.home_acc .table_pending  tr th{
+  line-height: 35px;
+  background-color: #e3e3e3;
+  border-bottom: 1px solid rgb(167, 167, 167);
+  color: #484848;
+}
+.table_prod_pending{
+  margin-top: 20px;
+}
+.table_prod_pending tbody tr td{
+padding-top: 10px;
+
+}
+.table_prod_pending tbody tr{
+  border-bottom: 1px solid rgb(167, 167, 167);
+}
+/* CSS phần người dùng bình luận */
+
+.illustration{
+  display: flex;
+  margin: 0px 20px;
+  border-bottom: 1px solid rgb(173, 173, 173);
+}
+.illustration img{
+  width: 65px;
+  height: auto;
+}
+.comment_prod_id .form_comment{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 20px;
+}
+.form_comment label{
+  margin: 10px 0px;
+}
+.form_comment input{
+  width: 100%;
+  margin: 5px 0px;
+  padding-left: 10px;
+}
+.form_comment textarea{
+  padding-left: 5px;
+  border: none;
+}
+.btn_comment{
+  margin-top: 5px;
+}
+.btn_comment button{
+  background-color: #088178;
+  color: white;
+  font-weight: 600;
+}
+.tong_bp_loc {
+  padding-top: 40px;
+  margin-left: -85px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form_loc {
+  display: flex;
+}
+
+.div_thanhkeo {
+  position: relative;
+}
+
+.btn_loc {
+  padding-top: 14px;
+}
+.btn_loc button{
+  background-color: #ffaa49;
+  color: white;
+  font-weight: 600;
+}
+
+.thanh_timhoanggia {
+  position: absolute;
+  top: 0px;
+  right: 100px;
+}
+
+.group_form select {
+  padding: 5px;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 6px;
 }

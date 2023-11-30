@@ -84,6 +84,7 @@ if (isset($_GET['act'])) {
 
     }
 } else {
+    include "../controller/controller_admin/statistical.php";
     include "main_admin/home.php";
 }
 include "main_admin/footer.php";

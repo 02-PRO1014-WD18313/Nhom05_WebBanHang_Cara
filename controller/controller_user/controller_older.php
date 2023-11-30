@@ -31,7 +31,7 @@ if (isset($_POST['btn_sbm_order'])) {
         !empty($phone_number)
     ) {
            $id_bill=order_informmation($code_older,$_SESSION['user_login']->ID_KH,$name_user, $phone_number, $Email_user, $province, $district, $commune,$pay_price_prod,$date_older,$status);
-            echo $id_bill;
+            // echo $id_bill;
 
         foreach ($get_cart as $cart_user) {
             if (isset($_SESSION['user_login'])) {
@@ -41,15 +41,21 @@ if (isset($_POST['btn_sbm_order'])) {
                     $quanity = $cart_user->SOLUONG_CART;
                     $price = $cart_user->PRICE_VARIANT;
                     oder_details($id_bill,$id_reat_prod, $quanity,$price);
-
+         
+                   $id_prod_view=$cart_user->ID_PRODUCT;
+                   $count_view_older=$cart_user->NUMBER_OF_ORDERS + $cart_user->SOLUONG_CART;
+                   update_view_order_prod($id_prod_view,$count_view_older);
+                   
                    $delete_cart_id=$cart_user->ID_CART;
                    delete_cart($delete_cart_id);
+
+                   $_SESSION['check_order']="Đặt hàng thành công";
                 }
             }
         }
 
     } else {
-        echo "ko ok";
+        $_SESSION['check_emty_order']="Không được bỏ trống";
     }
 }
 ?>

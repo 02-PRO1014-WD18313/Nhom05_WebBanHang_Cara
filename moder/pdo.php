@@ -137,7 +137,9 @@ function delete_variant($id_prod)
 function getid_variant_prod($id_prod)
 {
     $conn = connect();
-    $query = $conn->query("SELECT * FROM related_product WHERE ID_RELATED_PRODUCT=" . $id_prod);
+    $query = $conn->query("SELECT * FROM related_product 
+    JOIN color ON color.ID_COLOR=related_product.ID_COLOR
+    WHERE ID_RELATED_PRODUCT=" . $id_prod);
     $result = $query->fetch();
     return $result;
 }
@@ -164,6 +166,12 @@ function delete_user($id_usser)
     $query = $conn->query("DELETE FROM `user` WHERE ID_KH=" . $id_usser);
 }
 // thống kê số bình luận
+function binhluan($comment_content, $id_user, $id_prod, $date_comment)
+{
+    $conn = connect();
+    $conn->query("INSERT INTO `comment`(`COMMENTARY_CONTENT`, `ID_KH`, `ID_PRODUCT`, `DATE_COMENT`) 
+    VALUES ('$comment_content','$id_user','$id_prod','$date_comment')");
+}
 function getall_coment()
 {
     $conn = connect();
@@ -187,6 +195,25 @@ function del_comment($id_comment)
 {
     $conn = connect();
     $query = $conn->query("DELETE FROM `comment` WHERE ID_COMMENT=" . $id_comment);
+}
+// phần thống kế của trang admin
+function chart_type()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT  product_type.NAME_PROD_TYPE,SUM(product.NUMBER_OF_ORDERS) as 'cong' FROM `product_type` JOIN
+    product ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
+    GROUP BY product_type.ID_PROD_TYPE");
+    $result = $query->fetchAll();
+    return $result;
+}
+function prod_view_order()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM product JOIN product_type ON 
+    product.ID_PROD_TYPE=product_type.ID_PROD_TYPE
+    ORDER BY product.NUMBER_OF_ORDERS DESC LIMIT 10");
+    $result = $query->fetchAll();
+    return $result;
 }
 /////////////////////////////////////////////////////////////
 //phần trang chủ
@@ -223,13 +250,22 @@ function top_prod_older()
     return $result;
 }
 
-function getall_prod_shop($kyw_type_prod)
+function getall_prod_shop($kyw_type_prod, $kyw, $kyw_pri, $from_price, $from_to)
 {
     $conn = connect();
     $query = ("SELECT * FROM `product` 
-    JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE WHERE 1");
+    JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE ");
     if ($kyw_type_prod != "") {
         $query .= " AND product_type.ID_PROD_TYPE=" . $kyw_type_prod;
+    }
+    if ($from_price != "" && $from_to != "") {
+        $query .= " WHERE product.NEW_PRICE BETWEEN  " . $from_price . " AND " . $from_to;
+    }
+    if ($kyw != "") {
+        $query .= " ORDER BY NAME_PROD " . $kyw;
+    }
+    if ($kyw_pri != "") {
+        $query .= " ORDER BY NEW_PRICE " . $kyw_pri;
     }
     $resule = $conn->query($query);
     return $resule;
@@ -251,6 +287,12 @@ function prod_peatured($id_prod_type)
     WHERE product_type.ID_PROD_TYPE=" . $id_prod_type);
     $result = $query->fetchAll();
     return $result;
+}
+function update_view_order_prod($id_prod_view, $count_view_older)
+{
+    $conn = connect();
+    $conn->query("UPDATE `product` SET `NUMBER_OF_ORDERS`='$count_view_older' 
+    WHERE `ID_PRODUCT`=" . $id_prod_view);
 }
 function login($email, $pass)
 {
@@ -362,7 +404,7 @@ function update_older($confirm, $id_order)
 {
     $conn = connect();
     $query = $conn->query("UPDATE `order_prod` SET `STATUS_ORDER`='$confirm' 
-    WHERE `ID_ORDER`=".$id_order);
+    WHERE `ID_ORDER`=" . $id_order);
 }
 function getall_confirm_order()
 {
@@ -371,14 +413,44 @@ function getall_confirm_order()
     $result = $query->fetchAll();
     return $result;
 }
-function delete_order($list){
+function delete_order($list)
+{
     $conn = connect();
-    $query = $conn->query("DELETE FROM `order_prod` WHERE ID_ORDER=".$list);
+    $query = $conn->query("DELETE FROM `order_prod` WHERE ID_ORDER=" . $list);
 }
 // pdo phần chi tiết tài khoản người dùng
 function update_pass($pass_new, $id_kh)
 {
     $conn = connect();
     $conn->query("UPDATE `user` SET `PASSWORD`='$pass_new' WHERE `ID_KH`=" . $id_kh);
+}
+function order_details_pending()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `order_details`
+    JOIN related_product ON order_details.ID_RELATED_PRODUCT=related_product.ID_RELATED_PRODUCT
+    JOIN product ON product.ID_PRODUCT=related_product.ID_PRODUCT
+    JOIN color ON related_product.ID_COLOR=color.ID_COLOR");
+    $result = $query->fetchAll();
+    return $result;
+}
+function select_prod_success()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `order_prod` 
+    JOIN order_details ON order_prod.ID_ORDER=order_details.ID_ORDER 
+    JOIN related_product ON related_product.ID_RELATED_PRODUCT=order_details.ID_RELATED_PRODUCT
+    JOIN product ON product.ID_PRODUCT=related_product.ID_PRODUCT
+    JOIN color ON color.ID_COLOR=related_product.ID_COLOR");
+    $result = $query->fetchAll();
+    return $result;
+}
+function getprice_minmax()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT MIN(NEW_PRICE) as 'PRICE_MIN' , MAX(NEW_PRICE) as 'PRICE_MAX'
+    FROM `product` LIMIT 1");
+    $result = $query->fetch();
+    return $result;
 }
 ?>

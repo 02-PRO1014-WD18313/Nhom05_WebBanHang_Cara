@@ -56,7 +56,41 @@
 <script src="javasctip/script.js"></script>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../javasctip/sweetalert"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+    $('.price_form').val(<?php echo getprice_minmax()->PRICE_MIN ?>)
+    $('.price_to').val(<?php echo getprice_minmax()->PRICE_MAX / 1.5 ?>)
+    $(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: <?php echo getprice_minmax()->PRICE_MIN; ?>,
+            max: <?php echo getprice_minmax()->PRICE_MAX; ?>,
+            values: [<?php echo getprice_minmax()->PRICE_MIN ?>, <?php echo getprice_minmax()->PRICE_MAX / 1.5 ?>],
+            slide: function (event, ui) {
+                $("#amount").val("đ" + addPlus(ui.values[0]) + " - đ" + addPlus(ui.values[1]));
+                $('.price_form').val(ui.values[0]);
+                $('.price_to').val(ui.values[1]);
+            }
+        });
+        $("#amount").val("đ" + addPlus($("#slider-range").slider("values", 0)) +
+            " - đ" + addPlus($("#slider-range").slider("values", 1)));
+    });
+    function addPlus(nStr) {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + '.' + '$2');
+        }
+        return x1 + x2;
+    }
+</script>
 <?php
 if (isset($_SESSION['check_sign_up'])) {
 
@@ -72,7 +106,7 @@ if (isset($_SESSION['check_sign_up'])) {
 }
 unset($_SESSION['check_sign_up']);
 ?>
-<?php 
+<?php
 if (isset($_SESSION['update_pass'])) {
 
     ?>
@@ -87,5 +121,59 @@ if (isset($_SESSION['update_pass'])) {
 }
 unset($_SESSION['update_pass']);
 ?>
+<?php
+if (isset($_SESSION['check_comment'])) {
+
+    ?>
+    <script>
+        swal({
+            title: "Good job!",
+            text: "<?php echo $_SESSION['check_comment'] ?>",
+            button: "Leave",
+        });
+    </script>
+    <?php
+}
+unset($_SESSION['check_comment']);
+?>
+<?php
+if (isset($_SESSION['check_order'])) {
+
+    ?>
+    <script>
+        swal({
+            title: "Good job!",
+            text: "<?php echo $_SESSION['check_order'] ?>",
+            button: "Leave",
+        });
+    </script>
+    <?php
+}
+unset($_SESSION['check_order']);
+?>
+<?php
+if (isset($_SESSION['check_emty_order'])) {
+
+    ?>
+    <script>
+        alert("<?php echo $_SESSION['check_emty_order'] ?>")
+    </script>
+    <?php
+}
+unset($_SESSION['check_emty_order']);
+?>
+<script>
+    $('.select-filter').change(function () {
+        var value = $(this).find(':selected').val();
+        if (value != 0) {
+            var url_shop = 'index.php?href=shop';
+            var url = url_shop + value;
+            //  alert(url);
+            window.location.replace(url);
+        } else {
+            alert('Hãy chọn lọc')
+        }
+    })
+</script>
 
 </html>

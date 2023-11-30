@@ -30,13 +30,13 @@
 
     <div class="account2">
         <div class="box1">
-            <a href="" class="a_inpor_prod1">
+            <a href="index.php?href=account&acc=purchased_prod" class="a_inpor_prod1">
                 <div class="info_prod">
                     <span><box-icon name='cart-download'></box-icon></span>
                     <p>Sản Phẩm đã mua</p>
                 </div>
             </a>
-            <a href="" class="a_inpor_prod2">
+            <a href="index.php?href=account&acc=prod_pending" class="a_inpor_prod2">
                 <div class="info_prod1">
                     <span><box-icon type='solid' name='shopping-bags'></box-icon></span>
                     <p>Sản phẩm hàng chờ</p>
@@ -50,7 +50,7 @@
                         <p>Chưa có sản phẩm nào</p>
                     </div>
                     <div class="body_box2">
-                        <a href="">Tìm kiếm sản phẩm</a>
+                        <a href="index.php?href=shop">Tìm kiếm sản phẩm</a>
                     </div>
                 </div>
             </div>
