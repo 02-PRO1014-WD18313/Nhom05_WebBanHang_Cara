@@ -11,7 +11,7 @@ function clickmenu() {
     bart.style.top = "0";
 }
 function clickremove() {
-    bart.style.top = "-350px";
+    bart.style.top = "-400px";
 }
 function toggleMode(){
     big_mode_color.classList.toggle('hidden')

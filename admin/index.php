@@ -71,6 +71,10 @@ if (isset($_GET['act'])) {
             }
             break;
         case "older":
+            include "../controller/controller_admin/controller_older.php";
+            // if(isset( $_SESSION['check_confirm'])){
+            //     header("location:index.php?act=older");
+            // }
             if(isset($_GET['detal_older'])){
                 include "older/detal_older.php";
             }else{
@@ -80,6 +84,7 @@ if (isset($_GET['act'])) {
 
     }
 } else {
+    include "../controller/controller_admin/statistical.php";
     include "main_admin/home.php";
 }
 include "main_admin/footer.php";

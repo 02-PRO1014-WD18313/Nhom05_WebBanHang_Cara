@@ -39,7 +39,7 @@
     <div class="pro-container">
         <?php foreach ($top_prod_older as $topoder): ?>
             <div class="pro">
-                <a href="">
+                <a href="index.php?href=details&id_prod=<?php echo $topoder->ID_PRODUCT ?>">
                     <div class="img_home">
                         <img src="../images_prod/<?php echo $topoder->IMAGE ?>" alt="">
                     </div>
@@ -51,13 +51,7 @@
                     <h5>
                         <?php echo $topoder->NAME_PROD ?>
                     </h5>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
+
                     <div class="flex_price_and_color_prod">
                         <h4>
                             <?php echo number_format($topoder->NEW_PRICE, '0', ',', '.') . 'đ' ?>
@@ -94,7 +88,7 @@
     <div class="pro-container">
         <?php foreach ($top_8 as $get): ?>
             <div class="pro">
-                <a href="#">
+                <a href="index.php?href=details&id_prod=<?php echo $get->ID_PRODUCT ?>">
                     <div class="img_home">
                         <img src="../images_prod/<?php echo $get->IMAGE ?>" alt="">
                     </div>
@@ -107,13 +101,6 @@
                     <h5>
                         <?php echo $get->NAME_PROD ?>
                     </h5>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
                     <div class="flex_price_and_color_prod">
                         <h4>
                             <?php echo number_format($get->NEW_PRICE, '0', ',', '.') . 'đ' ?>

@@ -7,12 +7,29 @@
 <script>
     var ctx = document.getElementById('myChart2').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
+        // type:'bar'
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'black', 'ai'],
+            labels: [
+                <?php
+                foreach (chart_type() as $chart_order_prod) {
+                    $check = $chart_order_prod->NAME_PROD_TYPE;
+                    echo "'" . $check . "',";
+                }
+
+                ?>
+            ],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Đơn bán theo loại',
+
+                data: [
+                    <?php
+                    foreach (chart_type() as $chart_order_prod) {
+                        $check = $chart_order_prod->cong;
+                        echo "'" . $check . "',";
+                    }
+                    ?>
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -39,16 +56,19 @@
     function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Work', 11],
-            ['Eat', 2],
-            ['Commute', 2],
-            ['Watch TV', 2],
-            ['Sleep', 7]
+            ['NAME_PROD', 'NUMBER_OF_ORDERS'],
+            <?php foreach (count_prod() as $chart_order_prod) {
+                echo "['" . $chart_order_prod->NAME_PROD . "' , " . $chart_order_prod->NUMBER_OF_ORDERS . "],";
+            } ?>
+            // ['Work', 11],
+            // ['Eat', 2],
+            // ['Commute', 2],
+            // ['Watch TV', 2],
+            // ['Sleep', 7]
         ]);
 
         var options = {
-            title: 'My Daily Activities'
+            title: 'Đơn bán theo sản phẩm'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

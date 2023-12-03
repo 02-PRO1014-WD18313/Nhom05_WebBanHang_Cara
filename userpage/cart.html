@@ -10,6 +10,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
 <body>
@@ -32,57 +33,55 @@
         <h2>#let's_talk</h2>
         <p>LEAVE A MASSAGE, We love to hear from you!</p>
     </section>
+    <form action="">
+        <section id="cart" class="section-p1">
 
-    <section id="cart" class="section-p1">
-        <table>
-            <thead>
-                <tr>
-                    <td class="stickky">Remove</td>
-                    <td class="stickky">Image</td>
-                    <td>Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Subtotal</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="stickky"><a href="#"><i class="fa-solid fa-x"></i></a>
 
-                    </td>
-                    <td class="stickky"><img src="img/products/f1.jpg" alt=""></td>
-                    <td>Cartoon Astronaut T-Shirts</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>
-                </tr>
-                <tr>
-                    <td class="stickky"><i class="fa-solid fa-x"></i><a href="#"></a></td>
-                    <td class="stickky"><img src="img/products/f2.jpg" alt=""></td>
-                    <td>Cartoon Astronaut T-Shirts</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>
-                </tr>
-                <tr>
-                    <td class="stickky"><i class="fa-solid fa-x"></i><a href="#"></a></td>
-                    <td><img src="img/products/f3.jpg" alt=""></td>
-                    <td>Cartoon Astronaut T-Shirts</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>
-                </tr>
-            </tbody>
-        </table>
-        <form action="" class="form_cap_nhat">
-            <button type="submit">
-                Cập nhật giỏ hàng
-            </button>
-        </form>
-    </section>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="img/products/f1.jpg" alt=""></td>
+                        <td class="stickky">
+                            <p>Cartoon Astronaut T-Shirts</p>
+                        </td>
+                        <td>$118.19</td>
+                        <td><input type="number" class="quantity_cart" value="1" min="1"></td>
+                        <td>$118.19</td>
+                        <td>
+                            <div class="flex_hanhdong">
 
-    <section id="cart-add" class="section-p1">
-        <!-- <div id="coupon">
+                                <a href="" class="click_a_update_cart">
+                                    <div class="updata_cart">
+                                        <i class='bx bxs-edit'></i>
+                                    </div>
+                                </a>
+                                <a href="" class="remove_prod_cart">
+                                    <i class='bx bx-x'></i>
+                                </a>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </section>
+
+        <section id="cart-add" class="section-p1">
+            <!-- <div id="coupon">
                 <h3>Apply Coupon</h3>
                 <div>
                     <input type="text" placeholder="Enter Your Coupon">
@@ -90,24 +89,26 @@
                 </div>
             </div> -->
 
-        <div id="subtotal">
-            <h3>Cart Totals</h3>
-            <table>
-                <tr>
-                    <td>Cart Subtotal</td>
-                    <td>$335</td>
-                </tr>
-                <tr>
-                    <td>Shipping</td>
-                    <td>Free</td>
-                </tr>
-                <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>$335</strong></td>
-                </tr>
-            </table>
-            <button class="normal">Proceed to checkout</button>
-        </div>
+            <div id="subtotal">
+                <h3>Cart Totals</h3>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td>$335</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>$335</strong></td>
+                    </tr>
+                </table>
+                <button class="normal">Proceed to checkout</button>
+            </div>
+    </form>
+    
     </section>
 
 
