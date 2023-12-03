@@ -37,8 +37,7 @@ if (isset($_POST['btn_more_prod'])) {
         !empty($name_prod) && !empty($choose_type)
         && !empty($new_price) && !empty($old_price)
     ) {
-        header('location:/du_an_1/admin/index.php?act=manager_prod');
-        more_product(
+       $more_prod=more_product(
             $code_prod,
             $name_prod,
             $choose_type,
@@ -49,6 +48,7 @@ if (isset($_POST['btn_more_prod'])) {
             $data_added
         );
         move_uploaded_file($image_tmp, '../images_prod/' . $image);
+        header('location:index.php?act=variant_prod&bienthe='.$more_prod);
     }
 }
 //edit sản phẩm
@@ -70,8 +70,9 @@ if (isset($_POST['updata_prod'])) {
     $upd_new = $_POST['upd_new'];
     $upd_old = $_POST['upd_old'];
     $upd_menu = $_POST['upd_menu'];
+    $describe_updata_prod=$_POST['describe_updata_prod'];
 
-    update_prod($_GET['upd_prod'], $upd_name, $upd_img, $upd_new, $upd_old, $upd_menu);
+    update_prod($_GET['upd_prod'], $upd_name, $upd_img, $upd_new, $upd_old, $upd_menu, $describe_updata_prod);
     move_uploaded_file($updimg_tmp, "../images_prod/" . $upd_img);
     header("location:/du_an_1/admin/index.php?act=manager_prod");
 }

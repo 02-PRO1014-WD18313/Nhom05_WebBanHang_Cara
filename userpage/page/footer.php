@@ -55,6 +55,7 @@
 
 <script src="javasctip/script.js"></script>
 </body>
+<script src="javasctip/start.js" ></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -63,7 +64,7 @@
 
 <script>
     $('.price_form').val(<?php echo getprice_minmax()->PRICE_MIN ?>)
-    $('.price_to').val(<?php echo getprice_minmax()->PRICE_MAX / 1.5 ?>)
+    $('.price_to').val(<?php echo getprice_minmax()->PRICE_MAX  ?>)
     $(function () {
         $("#slider-range").slider({
             range: true,
@@ -73,7 +74,7 @@
             slide: function (event, ui) {
                 $("#amount").val("đ" + addPlus(ui.values[0]) + " - đ" + addPlus(ui.values[1]));
                 $('.price_form').val(ui.values[0]);
-                $('.price_to').val(ui.values[1]);
+                $('.price_to').val(ui.values[1] + 10000);
             }
         });
         $("#amount").val("đ" + addPlus($("#slider-range").slider("values", 0)) +
@@ -97,7 +98,7 @@ if (isset($_SESSION['check_sign_up'])) {
     ?>
     <script>
         swal({
-            title: "Good job!",
+            title: "",,
             text: "Đăng ký thành công.",
             button: "Leave",
         });
@@ -142,7 +143,7 @@ if (isset($_SESSION['check_order'])) {
     ?>
     <script>
         swal({
-            title: "Good job!",
+            title: "",
             text: "<?php echo $_SESSION['check_order'] ?>",
             button: "Leave",
         });

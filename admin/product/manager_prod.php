@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="contructer_more_size">
-            <button>Thêm size</button>
+            <!-- <button>Thêm size</button> -->
             <div class="more_size_prod hidden_more_size">
 
                 <div class="moder_size">
@@ -97,7 +97,7 @@
                         <th>Giá</th>
                         <th>Danh mục</th>
                         <th>Ngày nhập</th>
-                        <th>Phân hàng</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -128,7 +128,7 @@
                             <td>
                                 <a class="classify"
                                     href="index.php?act=variant_prod&bienthe=<?php echo $get->ID_PRODUCT ?>">
-                                    Phân hàng
+                                    Biến thể
                                 </a>
                             </td>
                             <td>

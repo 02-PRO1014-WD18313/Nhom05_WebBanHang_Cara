@@ -1,7 +1,7 @@
 <?php
 $count_prod = count_prod();
 $count = count($count_prod);
-$getall_coment = getall_coment();
+$getall_coment = getall_com();
 $count_comment = count($getall_coment);
 $count_view_older = 0;
 foreach ($count_prod as $view_order) {

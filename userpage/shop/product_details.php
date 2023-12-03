@@ -104,12 +104,12 @@
 
                 </div>
             </div>
-            <p style="color:red;" >
-                <?php 
-                if($check_user == false){
+            <p style="color:red;">
+                <?php
+                if ($check_user == false) {
                     echo "Bạn phải đăng nhập để mua hàng !";
                 }
-                if($check_empty == false){
+                if ($check_empty == false) {
                     echo "Bạn chưa chọn sản phẩm !";
                 }
                 ?>
@@ -120,18 +120,115 @@
 
             <h4>Product Details</h4>
             <div class="Content_restrictions" id="content">
-                <span id="span">Đơn giản là chưa có sự kết nối giữa bộ não tới tay, vì gõ code là qua tay.
-                    Khi nghe, khi nhìn, thì chỉ tạo ra được khả năng tiếp nhận thông tin và không
-                    hề tạo ra sự tương tác. Lúc này dữ liệu vào trong đầu theo chiều đi vào nhưng
-                    ko có chiều ra. Chính vì thế là nhiều người nghe thì được, chứ tay sờ gõ code
-                    thì chả biết làm gì. <span id="showws"></span></span>
+                <span id="span"><?php echo $get_id_prod->DESCRIBE ?>. <span id="showws"></span></span>
             </div>
 
         </div>
     </form>
 
-
 </section>
+<?php
+$count = 0;
+$getall_com = getall_com();
+foreach ($getall_com as $get) {
+    if ($get->ID_PRODUCT == $_GET['id_prod']) {
+        $count++;
+    }
+}
+if ($count == 0) { ?>
+    <p class="check_comment" style=" text-align: center;font-size: 22px;">Sản phẩm chưa có người bình luận.</p>
+<?php } else { ?>
+
+    <section id="comment_container">
+        <div class="comment">
+
+            <div class="comment_star">
+                <div class="comment_content">
+                    <h3>Đánh giá và nhận xét sản phẩm 
+                  
+                    </h3>
+                    <p>( <?php echo $count ?>)</p>
+                </div>
+                <div class="star_comment">
+                 
+                    <box-icon type='solid' name='star'></box-icon>
+                    <box-icon type='solid' name='star'></box-icon>
+                    <box-icon type='solid' name='star'></box-icon>
+                    <box-icon type='solid' name='star'></box-icon>
+                    <box-icon type='solid' name='star'></box-icon>
+                </div>
+
+            </div>
+
+            <div class="comment_box">
+                <div>
+                    <a href="index.php?href=details&id_prod=<?php echo $get_id_prod->ID_PRODUCT ?>" class="normal">Tất cả</a>
+                </div>
+                <div>
+                    <a href="index.php?href=details&id_prod=<?php echo $get_id_prod->ID_PRODUCT ?>&star=5" class="normal">5
+                        sao</a>
+                </div>
+                <div>
+                    <a href="index.php?href=details&id_prod=<?php echo $get_id_prod->ID_PRODUCT ?>&star=4" class="normal">4
+                        sao</a>
+                </div>
+                <div>
+                    <a href="index.php?href=details&id_prod=<?php echo $get_id_prod->ID_PRODUCT ?>&star=3" class="normal">3
+                        sao</a>
+                </div>
+                <div>
+                    <a href="index.php?href=details&id_prod=<?php echo $get_id_prod->ID_PRODUCT ?>&star=2" class="normal">2
+                        sao</a>
+                </div>
+                <div>
+                    <a href="index.php?href=details&id_prod=<?php echo $get_id_prod->ID_PRODUCT ?>&star=1" class="normal">1
+                        sao</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="comment_evaluate">
+
+            <div class="people">
+                <?php foreach ($getid_comment as $comment): ?>
+                    <div class="content_user">
+                        <div class="title_user">
+
+                            <img src="img/people/1.png" alt="">
+
+                            <div class="flex_title_user">
+                                <p><span>
+                                        <?php echo $comment->NAME_USER ?>
+                                    </span> </p>
+                                <p>
+                                    <?php echo $comment->DATE_COMENT ?>
+                                </p>
+                                <div class="start">
+                                    <?php for ($i = 1; $i <= $comment->STAR; $i++) {
+                                        ?>
+
+                                        <br><i style="  color: rgb(255, 191, 0);" class='bx bxs-star'></i>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <p>
+                            <?php echo $comment->COMMENTARY_CONTENT ?>
+                        </p>
+                    </div>
+                <?php endforeach ?>
+
+            </div>
+        </div>
+
+    </section>
+
+<?php } ?>
 
 <section id="product1" class="section-p1">
     <h2>Featured Products</h2>

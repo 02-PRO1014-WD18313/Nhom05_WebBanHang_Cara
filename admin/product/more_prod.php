@@ -43,7 +43,7 @@
                         </div>
                         <div class="mota">
                             <label for="">Mô tả</label>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea name="describe" id="" cols="30" rows="10"></textarea>
                         </div>
                         <div class="btn_more_product">
                             <button name="btn_more_prod">Tạo mới</button>

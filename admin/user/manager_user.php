@@ -51,7 +51,14 @@
                             </td>
                             <td>
                                 <div class="hanhdong">
-                                    khách hàng
+                                    <?php 
+                                    if($get_user->STATUS == 0){
+                                        echo "Khách hàng";
+                                    }else{
+                                        echo "ADMIN";
+                                    }
+                                    ?>
+
                                 </div>
 
                             </td>

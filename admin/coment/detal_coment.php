@@ -8,15 +8,15 @@
     </div>
 
     <div class="act_comment">
-        
-        <div class="choose_dele_comment" onclick="delete_id_coment()">                
-            <p>Xóa mục chọn</p>      
+
+        <div class="choose_dele_comment" onclick="delete_id_coment()">
+            <p>Xóa mục chọn</p>
         </div>
-        
+
         <div class="out_manager_comment">
             <a href="index.php?act=comment">Thoát</a>
         </div>
-        
+
     </div>
 
 </div>
@@ -30,6 +30,7 @@
                     <tr>
                         <th><input type="checkbox" id="selectallcomment" onclick="select_all()"></th>
                         <th>Nội dung</th>
+                        <th>Đánh giá</th>
                         <th>Ngày bình luận</th>
                         <th>Người bình luận</th>
                     </tr>
@@ -42,6 +43,15 @@
                                     value="<?php echo $get->ID_COMMENT ?>"></td>
                             <td>
                                 <?php echo $get->COMMENTARY_CONTENT ?>
+                            </td>
+                            <td>
+                                <?php
+                                for ($i = 1; $i <= $get->STAR; $i++) {
+                                    ?>
+                                    <i style="  color: rgb(255, 191, 0);" class='bx bxs-star'></i>
+                                <?php
+                                }
+                                ?>
                             </td>
                             <td>
                                 <?php echo $get->DATE_COMENT ?>
@@ -58,7 +68,7 @@
     </div>
 </form>
 <script>
-        function select_all() {
+    function select_all() {
         if ($('#selectallcomment').prop("checked")) {
 
             $('input[type=checkbox]').each(function () {

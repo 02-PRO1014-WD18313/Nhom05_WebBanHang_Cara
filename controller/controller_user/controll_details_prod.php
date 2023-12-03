@@ -14,8 +14,9 @@ $get_cart = get_cart();
 if (isset($_POST['btn_more_cart'])) {
     $quanity = $_POST['quanyty'];
     if (isset($_SESSION['user_login'])) {
-        if (!empty($_POST['prod_color'])) {
 
+        if (!empty($_POST['prod_color'])) {
+            $validate_cart ;
             foreach ($get_cart as $check_prod) {
                 if (
                     $check_prod->ID_RELATED_PRODUCT == $_POST['prod_color'] &&
@@ -27,13 +28,11 @@ if (isset($_POST['btn_more_cart'])) {
                     // echo $check_prod->ID_KH;
                     update_prod_cart($total_soluong, $id_cart);
                     $validate_cart = true;
-                } else {    
-                    $validate_cart = false;
-                }   
+                    // echo $validate_cart;
+                }
             }
-      
-            if ($validate_cart == false) {
-                  more_cart($_SESSION['user_login']->ID_KH, $_POST['prod_color'], $quanity);
+            if ($validate_cart !=true) {
+                more_cart($_SESSION['user_login']->ID_KH, $_POST['prod_color'], $quanity);
             }
 
 
@@ -43,5 +42,15 @@ if (isset($_POST['btn_more_cart'])) {
     } else {
         $check_user = false;
     }
+}
+// bình luận theo sản phẩm 
+if (isset($_GET['id_prod'])) {
+    if (isset($_GET['star'])) {
+        $star = $_GET['star'];
+        $getid_comment = select_comment($_GET['id_prod'], $star);
+    } else {
+        $star = "";
+    }
+    $getid_comment = select_comment($_GET['id_prod'], $star);
 }
 ?>

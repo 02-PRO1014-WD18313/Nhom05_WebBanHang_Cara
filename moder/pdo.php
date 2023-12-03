@@ -61,6 +61,9 @@ function more_product(
     $conn = connect();
     $conn->query("INSERT INTO `product`(`CODE_PROD`,`NAME_PROD`, `IMAGE`, `NEW_PRICE`,`OLD_PRICE`, `ID_PROD_TYPE`, `DESCRIBE`, `DATE_ADDED`) VALUES 
     ('$code_prod','$name_prod','$image','$new_price','$old_price','$choose_type','$describe',' $data_added') ");
+    $lastInsertId=$conn->lastInsertId();
+    return $lastInsertId;
+    
 }
 function getall_prod($name_kyw)
 {
@@ -74,13 +77,13 @@ function getall_prod($name_kyw)
     $conn = connect();
 
     $query = ("SELECT * FROM product JOIN product_type ON 
-    product.ID_PROD_TYPE=product_type.ID_PROD_TYPE WHERE 1");
+    product.ID_PROD_TYPE=product_type.ID_PROD_TYPE WHERE 1 ");
 
     if ($name_kyw != "") {
         $query .= " AND NAME_PROD LIKE'%" . $name_kyw . "%'";
     }
 
-    $query .= " LIMIT $from , $row";
+    $query .= " ORDER BY DATE_ADDED DESC LIMIT $from , $row";
 
     $result = $conn->query($query);
     return $result;
@@ -107,12 +110,12 @@ function getid_prod($id_prod)
     $result = $query->fetch();
     return $result;
 }
-function update_prod($id_prod, $upd_name, $upd_img, $upd_new, $upd_old, $upd_menu)
+function update_prod($id_prod, $upd_name, $upd_img, $upd_new, $upd_old, $upd_menu,$describe_updata_prod)
 {
     $conn = connect();
     $query = $conn->query("UPDATE `product` SET 
   `NAME_PROD`='$upd_name',`IMAGE`='$upd_img',`NEW_PRICE`='$upd_new',
-  `OLD_PRICE`='$upd_old',`ID_PROD_TYPE`='$upd_menu' WHERE`ID_PRODUCT`=" . $id_prod);
+  `OLD_PRICE`='$upd_old',`ID_PROD_TYPE`='$upd_menu' ,`DESCRIBE`='$describe_updata_prod' WHERE`ID_PRODUCT`=" . $id_prod);
 }
 // biến thể sản phẩm
 function more_variant($id_prod, $color_variant, $image, $price_variant)
@@ -166,11 +169,11 @@ function delete_user($id_usser)
     $query = $conn->query("DELETE FROM `user` WHERE ID_KH=" . $id_usser);
 }
 // thống kê số bình luận
-function binhluan($comment_content, $id_user, $id_prod, $date_comment)
+function binhluan($comment_content, $id_user, $id_prod, $date_comment, $star)
 {
     $conn = connect();
-    $conn->query("INSERT INTO `comment`(`COMMENTARY_CONTENT`, `ID_KH`, `ID_PRODUCT`, `DATE_COMENT`) 
-    VALUES ('$comment_content','$id_user','$id_prod','$date_comment')");
+    $conn->query("INSERT INTO `comment`(`COMMENTARY_CONTENT`, `ID_KH`, `ID_PRODUCT`, `DATE_COMENT`, `STAR`) 
+    VALUES ('$comment_content','$id_user','$id_prod','$date_comment','$star')");
 }
 function getall_coment()
 {
@@ -185,7 +188,7 @@ function getall_coment()
 function slec_coment_idprod($id_prod)
 {
     $conn = connect();
-    $query = $conn->query("SELECT comment.ID_COMMENT,comment.COMMENTARY_CONTENT,comment.DATE_COMENT,product.ID_PRODUCT,user.NAME_USER FROM comment JOIN product ON comment.ID_PRODUCT=product.ID_PRODUCT
+    $query = $conn->query("SELECT comment.ID_COMMENT,comment.COMMENTARY_CONTENT,comment.DATE_COMENT,product.ID_PRODUCT,user.NAME_USER ,COMMENT.STAR FROM comment JOIN product ON comment.ID_PRODUCT=product.ID_PRODUCT
     JOIN user ON comment.ID_KH=user.ID_KH
     WHERE product.ID_PRODUCT=" . $id_prod);
     $result = $query->fetchAll();
@@ -221,11 +224,8 @@ function top_8_prodnew()
 {
     $conn = connect();
     $query = $conn->query("SELECT * FROM `product` 
-  JOIN related_product ON product.ID_PRODUCT=related_product.ID_PRODUCT
-  JOIN color ON related_product.ID_COLOR=color.ID_COLOR
   JOIN product_type ON product_type.ID_PROD_TYPE=product.ID_PROD_TYPE
-  GROUP BY product.ID_PRODUCT
-  ORDER BY product.DATE_ADDED DESC LIMIT 8");
+  ORDER BY  `product`.`DATE_ADDED` DESC LIMIT 8");
     $result = $query->fetchAll();
     return $result;
 }
@@ -451,6 +451,28 @@ function getprice_minmax()
     $query = $conn->query("SELECT MIN(NEW_PRICE) as 'PRICE_MIN' , MAX(NEW_PRICE) as 'PRICE_MAX'
     FROM `product` LIMIT 1");
     $result = $query->fetch();
+    return $result;
+}
+// phần kết nối với sql lấy bình luận theo sản phẩm
+function select_comment($get_id,$star)
+{
+    $conn = connect();
+    $query =("SELECT * FROM `comment`
+    JOIN user ON comment.ID_KH=user.ID_KH
+     WHERE ID_PRODUCT =" . $get_id);
+
+    if ($star != "") {
+        $query .= " AND `STAR`  = " . $star;
+    }
+    $result = $conn->query($query);
+    return $result;
+}
+function getall_com()
+{
+    $conn = connect();
+    $query = $conn->query("SELECT * FROM `comment`
+    JOIN user ON comment.ID_KH=user.ID_KH");
+    $result = $query->fetchAll();
     return $result;
 }
 ?>
