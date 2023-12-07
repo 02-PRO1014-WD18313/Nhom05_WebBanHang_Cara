@@ -75,11 +75,11 @@ if (isset($_GET['act'])) {
             // if(isset( $_SESSION['check_confirm'])){
             //     header("location:index.php?act=older");
             // }
-            if(isset($_GET['detal_older'])){
+            if (isset($_GET['detal_older'])) {
                 include "older/detal_older.php";
-            }else{
-                  include "older/manager_older.php";
-            }       
+            } else {
+                include "older/manager_older.php";
+            }
             break;
 
     }

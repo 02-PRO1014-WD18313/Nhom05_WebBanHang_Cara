@@ -31,6 +31,7 @@ if (isset($_POST['btn_more_cart'])) {
                     // echo $validate_cart;
                 }
             }
+            $_SESSION['more_cart']="Thêm thành công";
             if ($validate_cart !=true) {
                 more_cart($_SESSION['user_login']->ID_KH, $_POST['prod_color'], $quanity);
             }

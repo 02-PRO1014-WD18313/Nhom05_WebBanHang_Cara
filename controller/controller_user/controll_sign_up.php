@@ -1,5 +1,6 @@
 <?php
 $check_mail_duplicate="";
+$check_empty_sigup="";
 if (isset($_POST['btn_sign_up'])) {
     $name_user = $_POST['name_user'];
     $email_user = $_POST['email_user'];
@@ -13,6 +14,8 @@ if (isset($_POST['btn_sign_up'])) {
         } else {
             $check_mail_duplicate=$check_email;
         }
+    }else{
+        $check_empty_sigup="Không được bỏ trống thông tin!";
     }
 }
 ?>

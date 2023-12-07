@@ -1,3 +1,14 @@
+<?php 
+if(isset($_SESSION['admin'])){
+    $session_admin=$_SESSION['admin'];
+}else{
+    header("location:login_admin.php");
+}
+if(isset($_GET['logout'])){
+    unset($_SESSION['admin']);
+    header("location:login_admin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,38 +45,38 @@
                             <span>Thống kê</span>
                         </a>
                     </li>
-                    <li class="nav_link " >
+                    <li class="nav_link ">
                         <a href="index.php?act=product_protfolio" onclick="click_menu(2)">
                             <i class='bx bx-purchase-tag'></i>
                             <span>Danh mục hàng</span>
                         </a>
                     </li>
-                    <li class="nav_link" >
+                    <li class="nav_link">
                         <a href="index.php?act=manager_prod">
                             <i class='bx bxs-food-menu'></i>
                             <span>Sản phẩm</span>
                         </a>
                     </li>
-                    <li class="nav_link" >
+                    <li class="nav_link">
                         <a href="index.php?act=manager_user">
                             <i class="fa-regular fa-user"></i>
                             <span>Người dùng</span>
                         </a>
                     </li>
-                    <li class="nav_link" >
+                    <li class="nav_link">
                         <a href="index.php?act=comment">
                             <i class="fa-solid fa-comment-dots"></i>
                             <span>Quản lý bình luận</span>
                         </a>
                     </li>
-                    <li class="nav_link" >
+                    <li class="nav_link">
                         <a href="index.php?act=older">
                             <i class="fa-brands fa-cc-amazon-pay"></i>
                             <span>Quản lý đặt hàng</span>
                         </a>
                     </li>
-                    <li class="nav_link" id="log_out" >
-                        <a href="">
+                    <li class="nav_link" id="log_out">
+                        <a href="index.php?logout">
                             <i class="fa-solid fa-right-from-bracket"></i>
                             <span>Đăng xuất</span>
                         </a>
@@ -83,7 +94,7 @@
                 </div>
                 <div class="user_admin">
                     <div class="text_admin">
-                        <p> phúc</p>
+                        <p><?php echo $session_admin->NAME_USER ?></p>
                     </div>
                     <div class="image_admin">
                         <img src="image/3.jpg" alt="">
