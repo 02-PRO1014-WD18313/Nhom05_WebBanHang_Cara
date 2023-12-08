@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
     margin: 0px;
     padding: 0px;
@@ -1398,5 +1399,4 @@ th {
     padding: 10px 15px;
     background-color: rgb(255, 124, 124);
     color: #ffffff;
-    
 }

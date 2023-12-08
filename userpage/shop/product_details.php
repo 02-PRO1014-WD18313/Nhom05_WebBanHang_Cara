@@ -196,7 +196,7 @@ if ($count == 0) { ?>
                     <div class="content_user">
                         <div class="title_user">
 
-                            <img src="img/people/1.png" alt="">
+                            <img style="border-radius: 50%;" src="img/people/avatar-trang-2.jpg" alt="">
 
                             <div class="flex_title_user">
                                 <p><span>

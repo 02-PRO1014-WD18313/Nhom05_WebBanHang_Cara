@@ -32,7 +32,8 @@
                             <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i> 
                             <span> I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
                         </label>
-                        <p><?php echo $check_mail_duplicate; ?></p>
+                        <p style="color:red;" ><?php echo $check_mail_duplicate; ?></p>
+                        <p style="color:red;" ><?php echo $check_empty_sigup ?></p>
                         <div class="footer-action">
                             <input type="submit" name="btn_sign_up" value="Sign Up" class="auth-submit">
                             <a href="index.php?href=login" class="auth-btn-direct">Sign In</a>

@@ -163,6 +163,17 @@ if (isset($_SESSION['check_emty_order'])) {
 }
 unset($_SESSION['check_emty_order']);
 ?>
+<?php
+if (isset($_SESSION['more_cart'])) {
+
+    ?>
+    <script>
+        alert("<?php echo $_SESSION['more_cart'] ?>")
+    </script>
+    <?php
+}
+unset($_SESSION['more_cart']);
+?>
 <script>
     $('.select-filter').change(function () {
         var value = $(this).find(':selected').val();

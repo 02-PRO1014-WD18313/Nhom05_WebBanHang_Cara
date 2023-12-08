@@ -22,12 +22,12 @@
                             <span> Remember password.</span>
                         </label>
                         <p style="color:red;" ><?php echo $block_eronl ?></p>
+                        <p><?php echo $check_empty_login ?></p>
                         <div class="footer-action">
                             <input type="submit" name="btn_login" value="Sign In" class="auth-submit">
                             <a href="index.php?href=sign_up" class="auth-btn-direct">Sign Up</a>
                         </div>
                     </form>
-
 
                     <div class="auth-forgot-password">
                         <a href="#">Forfot Password</a>
@@ -36,7 +36,7 @@
             </div>
             <div class="auth-action-right">
                 <div class="auth-image">
-                   <img src="/img/products/f5.jpg" alt="">
+                <img width="100px" style="margin-left: -80px;" src="img/products/f1-removebg-preview.png" alt="login">
                 </div>
             </div>
         </div>
